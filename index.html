@@ -3,70 +3,136 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#087044">
-<title>HQ MESS — Good Food. Good Health. Every Day.</title>
-<link rel="stylesheet" href="style.css">
+<title>HQ MESS | Good Food. Good Health. Every Day.</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;color:#12352b;background:#fff}
+a{text-decoration:none;color:inherit}
+.container{width:min(1180px,92%);margin:auto}
+header{height:82px;background:#fff;display:flex;align-items:center;position:sticky;top:0;z-index:20;box-shadow:0 2px 14px #00000012}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:25px}
+.logo{font-weight:900;font-size:34px;color:#087b4b;letter-spacing:-1px;white-space:nowrap}
+.logo span{color:#f05a20}
+.tagline{font-size:15px;color:#555;flex:1;margin-left:28px}
+nav{display:flex;align-items:center;gap:30px;font-weight:700}
+nav a{padding:12px 4px;border-bottom:3px solid transparent}
+nav a:hover,nav a.active{color:#087b4b;border-color:#087b4b}
+.contact{background:#087b4b!important;color:#fff!important;padding:12px 20px!important;border-radius:12px;border:0!important}
+.hero{min-height:490px;background:linear-gradient(90deg,#102c1e 0%,#173923 42%,#5a321d 100%);color:#fff;position:relative;overflow:hidden}
+.hero:after{content:"🍛  🥗  🍚";position:absolute;right:7%;top:22%;font-size:75px;opacity:.9;transform:rotate(-4deg);letter-spacing:8px}
+.hero-inner{min-height:490px;display:flex;align-items:center;position:relative;z-index:2}
+.hero-copy{max-width:680px}
+.eyebrow{font-size:20px;margin-bottom:8px}
+.hero h1{font-size:62px;line-height:1.03;margin-bottom:18px}
+.hero h1 span{color:#ffd21a}
+.hero p{font-size:20px;font-weight:600;margin-bottom:28px}
+.btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-block;padding:16px 25px;border-radius:30px;font-weight:800;border:2px solid #ffd21a}
+.primary{background:#ffd21a;color:#111}
+.secondary{color:#fff;border-color:#fff}
+.badge{position:absolute;right:17%;top:25%;width:125px;height:125px;border-radius:50%;background:#087b4b;border:4px solid #ffd21a;display:flex;align-items:center;justify-content:center;text-align:center;font-weight:900;font-size:18px;line-height:1.1;z-index:3}
+.benefits{background:#f3fbf5;padding:25px 0}
+.benefit-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.benefit{text-align:center;padding:12px 10px;border-right:1px solid #d7e8dc}
+.benefit:last-child{border:0}
+.icon{font-size:34px;margin-bottom:8px}.benefit h3{font-size:17px;margin-bottom:5px}.benefit p{font-size:13px;color:#555}
+.section{padding:38px 0}
+.section-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+.section-title h2{font-size:32px}.underline{width:90px;height:4px;background:#ffd21a;margin-top:5px}
+.days{display:grid;grid-template-columns:repeat(7,1fr);gap:12px}
+.day{border:0;border-radius:13px;padding:15px;background:#f0f2f2;font-size:18px;font-weight:800;cursor:pointer}
+.day.active{background:#087b4b;color:#fff}
+.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{border-radius:18px;padding:22px;text-align:center;box-shadow:0 8px 25px #00000010;border:1px solid #eee}
+.card:nth-child(1){background:#fff5d9}.card:nth-child(2){background:#edf9ef}.card:nth-child(3){background:#fff0e5}
+.food{font-size:70px;margin:12px 0}.card h3{font-size:23px;margin-bottom:6px}.card p{color:#555;line-height:1.5;margin-bottom:18px}.small-btn{display:inline-block;background:#ffd21a;color:#111;padding:12px 20px;border-radius:25px;font-weight:800}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-top:30px}
+.tile{min-height:150px;border-radius:14px;padding:22px;display:flex;flex-direction:column;justify-content:space-between;font-weight:800}
+.tile:nth-child(1){background:#dff2df}.tile:nth-child(2){background:#fff0cf}.tile:nth-child(3){background:#ffe5e5}.tile:nth-child(4){background:#e1f0f4}
+footer{background:#063c2d;color:#fff;padding:35px 0;margin-top:20px}.foot{display:grid;grid-template-columns:repeat(4,1fr);gap:25px}.foot h3{margin-bottom:8px}.foot p{color:#d5e8df;line-height:1.5}
+@media(max-width:900px){nav{gap:12px}.tagline{display:none}.hero h1{font-size:48px}.badge{right:5%}.benefit-grid{grid-template-columns:repeat(3,1fr)}.tiles{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:650px){header{height:auto;padding:14px 0}.nav{flex-wrap:wrap}.logo{font-size:28px}nav{width:100%;justify-content:space-between;gap:6px;font-size:12px}.contact{display:none}.hero,.hero-inner{min-height:560px}.hero h1{font-size:42px}.hero:after{right:-35px;top:45%;font-size:55px}.badge{top:auto;bottom:30px;right:20px;width:100px;height:100px;font-size:15px}.benefit-grid,.menu-grid,.foot{grid-template-columns:1fr}.benefit{border-right:0;border-bottom:1px solid #d7e8dc}.days{grid-template-columns:repeat(4,1fr)}.tiles{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
-<header class="topbar">
-  <a class="brand" href="#home"><span class="logo-mark">♨</span><span><b>HQ <em>MESS</em></b><small>Good Food • Healthy Life • Every Day</small></span></a>
-  <nav>
-    <button class="nav-btn active" data-target="home">⌂<span>Home</span></button>
-    <button class="nav-btn" data-target="weekly">▦<span>Weekly Menu</span></button>
-    <button class="nav-btn" data-target="extras">♨<span>Extra Items</span></button>
-    <button class="nav-btn" data-target="tea">☕<span>Tea Party</span></button>
-    <button class="nav-btn" data-target="special">★<span>Specials</span></button>
-  </nav>
-  <a class="contact" href="tel:+910000000000">☎ Contact</a>
+<header>
+<div class="container nav">
+<a class="logo" href="#home">♨ HQ <span>MESS</span></a>
+<div class="tagline">Good Food • Healthy Life • Every Day</div>
+<nav>
+<a class="active" href="#home">⌂ Home</a>
+<a href="#weekly">▦ Weekly Menu</a>
+<a href="#extras">♨ Extra Items</a>
+<a href="#tea">☕ Tea Party</a>
+<a href="#specials">★ Specials</a>
+<a class="contact" href="tel:+910000000000">☎ Contact</a>
+</nav>
+</div>
 </header>
 
-<main>
-<section id="home" class="hero">
-  <div class="hero-content">
-    <p class="eyebrow">WELCOME TO HQ MESS</p>
-    <h1>Good Food.<br><span>Good Health.</span><br>Every Day.</h1>
-    <p class="hero-sub">Nutritious • Hygienic • Affordable • Freshly Prepared</p>
-    <div class="hero-actions"><button id="todayBtn" class="btn yellow">🍴 VIEW TODAY'S MENU →</button><button class="btn outline" onclick="document.getElementById('weekly').scrollIntoView({behavior:'smooth'})">▣ VIEW WEEKLY MENU</button></div>
-  </div>
-  <div class="hero-art">
-    <div class="fresh-badge">Fresh<br>Healthy<br>Tasty<br>Meals</div>
-    <div class="food-plate">
-      <div class="rice-mound">🍚</div><div class="bowl bowl-a">🍛</div><div class="bowl bowl-b">🥗</div><div class="bowl bowl-c">🥘</div><div class="chapati">🫓</div><div class="veg">🥕</div>
-    </div>
-  </div>
+<main id="home">
+<section class="hero">
+<div class="container hero-inner">
+<div class="hero-copy">
+<div class="eyebrow">WELCOME TO HQ MESS</div>
+<h1>Good Food.<br><span>Good Health.</span><br>Every Day.</h1>
+<p>Nutritious • Hygienic • Affordable • Freshly Prepared</p>
+<div class="btns">
+<a class="btn primary" href="#today">🍴 VIEW TODAY'S MENU →</a>
+<a class="btn secondary" href="#weekly">▣ VIEW WEEKLY MENU</a>
+</div>
+</div>
+<div class="badge">Fresh<br>Healthy<br>Tasty<br>Meals</div>
+</div>
 </section>
 
 <section class="benefits">
-  <div><i>🌿</i><b>Fresh<br>Ingredients</b><small>High quality ingredients</small></div>
-  <div><i>🛡️</i><b>Hygienic<br>Preparation</b><small>Clean and safe kitchen</small></div>
-  <div><i>❤️</i><b>Healthy<br>Meals</b><small>Balanced nutrition</small></div>
-  <div><i>₹</i><b>Affordable<br>Pricing</b><small>Great taste, great value</small></div>
-  <div><i>♨</i><b>Freshly<br>Prepared</b><small>Cooked with care</small></div>
+<div class="container benefit-grid">
+<div class="benefit"><div class="icon">🌿</div><h3>Fresh Ingredients</h3><p>High quality ingredients</p></div>
+<div class="benefit"><div class="icon">🛡️</div><h3>Hygienic Preparation</h3><p>Clean and safe kitchen</p></div>
+<div class="benefit"><div class="icon">❤️</div><h3>Healthy Meals</h3><p>Balanced nutrition</p></div>
+<div class="benefit"><div class="icon">₹</div><h3>Affordable Pricing</h3><p>Great taste, great value</p></div>
+<div class="benefit"><div class="icon">👨‍🍳</div><h3>Freshly Prepared</h3><p>Cooked with care</p></div>
+</div>
 </section>
 
-<section class="day-section">
-  <div class="section-head"><h2>▣ &nbsp;Choose Your Day</h2></div>
-  <div class="days"><button class="day active" data-day="Sunday">Sun</button><button class="day" data-day="Monday">Mon</button><button class="day" data-day="Tuesday">Tue</button><button class="day" data-day="Wednesday">Wed</button><button class="day" data-day="Thursday">Thu</button><button class="day" data-day="Friday">Fri</button><button class="day" data-day="Saturday">Sat</button></div>
+<section class="section container">
+<div class="section-title"><div><h2>📅 Choose Your Day</h2><div class="underline"></div></div></div>
+<div class="days">
+<button class="day" onclick="selectDay(this)">Sun</button><button class="day" onclick="selectDay(this)">Mon</button><button class="day" onclick="selectDay(this)">Tue</button><button class="day" onclick="selectDay(this)">Wed</button><button class="day" onclick="selectDay(this)">Thu</button><button class="day" onclick="selectDay(this)">Fri</button><button class="day active" onclick="selectDay(this)">Sat</button>
+</div>
 </section>
 
-<section class="today section-card">
-  <div class="menu-head"><div><h2>🍴 <span>Today's</span> Menu</h2><div class="gold-line"></div></div><strong id="selectedDay">SUNDAY</strong></div>
-  <div id="mealGrid" class="meal-grid"></div>
+<section class="section container" id="today">
+<div class="section-title"><div><h2>🍴 Today's Menu</h2><div class="underline"></div></div><a class="small-btn" href="#weekly">View Full Menu →</a></div>
+<div class="menu-grid">
+<div class="card"><h3>☀️ Breakfast</h3><p>7:00 AM - 10:00 AM</p><div class="food">🍛🥣</div><p>Idli, Vada, Dosa, Upma, Pongal and more...</p><a class="small-btn" href="#">View Breakfast Menu →</a></div>
+<div class="card"><h3>🍲 Lunch</h3><p>12:00 PM - 3:00 PM</p><div class="food">🍚🥘</div><p>Rice, Sambar, Rasam, Curries, Dal, Chapati and more...</p><a class="small-btn" href="#">View Lunch Menu →</a></div>
+<div class="card"><h3>🌙 Dinner</h3><p>7:00 PM - 10:00 PM</p><div class="food">🍛🫓</div><p>Chapati, Curries, Rice, Special Items and more...</p><a class="small-btn" href="#">View Dinner Menu →</a></div>
+</div>
+<div class="tiles">
+<div class="tile" id="weekly"><h2>Weekly Menu</h2><p>Plan your meals ahead</p><a class="small-btn" href="#">View Menu →</a></div>
+<div class="tile" id="extras"><h2>Extra Items</h2><p>Snacks, beverages and more</p><a class="small-btn" href="#">View Items →</a></div>
+<div class="tile" id="tea"><h2>Tea Party</h2><p>Tea, coffee and refreshments</p><a class="small-btn" href="#">View Menu →</a></div>
+<div class="tile" id="specials"><h2>Specials</h2><p>Today's special dishes</p><a class="small-btn" href="#">View Specials →</a></div>
+</div>
 </section>
-
-<section class="feature-tiles">
-  <article class="tile weekly-tile" id="weekly"><div><h3>Weekly<br>Menu</h3><p>Plan your meals<br>ahead</p><button onclick="document.querySelector('.today').scrollIntoView({behavior:'smooth'})">View Menu →</button></div></article>
-  <article class="tile extras-tile" id="extras"><div><h3>Extra Items</h3><p>Snacks, Beverages<br>and more</p><button onclick="document.getElementById('extraGrid').scrollIntoView({behavior:'smooth'})">View Items →</button></div></article>
-  <article class="tile tea-tile" id="tea"><div><h3>Tea Party</h3><p>Tea, Coffee<br>and Refreshments</p><button onclick="document.getElementById('teaGrid').scrollIntoView({behavior:'smooth'})">View Menu →</button></div></article>
-  <article class="tile special-tile" id="special"><div><h3>Specials</h3><p>Today's Special<br>Dishes</p><button onclick="document.querySelector('.special-box').scrollIntoView({behavior:'smooth'})">View Specials →</button></div></article>
-</section>
-
-<section class="section-card compact extras-box"><div class="simple-heading"><h2>Extra Items <small>(With Prices)</small></h2></div><div id="extraGrid" class="item-grid"></div></section>
-<section class="section-card compact tea-box"><div class="simple-heading"><h2>☕ Tea Party <small>(No Prices)</small></h2></div><div id="teaGrid" class="item-grid"></div></section>
-<section class="section-card compact special"><div class="simple-heading"><h2>⭐ Today's Special</h2></div><div class="special-box"><span>🍗</span><div><b>HOUSE SPECIAL</b><h3>Special Chicken Biryani</h3><p>Special curry • Special sweet</p></div><strong>★</strong></div></section>
 </main>
 
-<footer><div><b>HQ <em>MESS</em></b><small>Good Food • Healthy Life • Every Day</small></div><span>🌿 Quality Food</span><span>🛡️ Hygienic & Safe</span><span>👥 Affordable</span><span>❤️ Healthy Life</span></footer>
-<script src="app.js"></script>
+<footer>
+<div class="container foot">
+<div><h3>🌿 Quality Food</h3><p>Prepared with fresh ingredients.</p></div>
+<div><h3>🛡️ Hygienic & Safe</h3><p>Clean and well maintained kitchen.</p></div>
+<div><h3>👥 Affordable</h3><p>Delicious meals at reasonable prices.</p></div>
+<div><h3>❤️ Healthy Life</h3><p>Nutritious meals for a better you.</p></div>
+</div>
+</footer>
+<script>
+function selectDay(btn){
+ document.querySelectorAll('.day').forEach(x=>x.classList.remove('active'));
+ btn.classList.add('active');
+}
+</script>
 </body>
 </html>
