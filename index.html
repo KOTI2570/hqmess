@@ -98,6 +98,19 @@ a{text-decoration:none;color:inherit}button{font:inherit;border:0;cursor:pointer
 .hero-copy .actions{justify-content:center}
 @media(max-width:900px){.hero-copy{width:100%;padding:24px}.welcome{font-size:24px!important;padding:9px 22px!important}}
 </style>
+
+<style>
+/* CHOOSE YOUR DAY ONLY — header, hero and feature section are untouched */
+.day-picker .section-title{font-weight:900;font-size:28px;color:#063d31;margin-bottom:16px}
+.days{gap:14px!important}
+.day{appearance:none;border:1px solid #cfe3d6!important;background:linear-gradient(180deg,#ffffff,#f2faf5)!important;border-radius:16px!important;min-height:118px;padding:16px 10px!important;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;color:#073d31!important;box-shadow:0 5px 15px rgba(0,63,50,.07);transition:transform .2s,box-shadow .2s,border-color .2s,background .2s}
+.day strong{font-size:18px;line-height:1.1}.day span{font-size:12px;font-weight:800;color:#087c49}.day:hover{transform:translateY(-3px);border-color:#087c49!important;box-shadow:0 10px 22px rgba(8,124,73,.14);background:#f0fbf5!important}.day.selected{background:linear-gradient(135deg,#087c49,#07935a)!important;color:#fff!important;border-color:#087c49!important;box-shadow:0 10px 24px rgba(8,124,73,.22)}.day.selected span{color:#fff}
+.day-menu-panel{margin:0 3.5% 28px;padding:24px;background:#f7fbf8;border:1px solid #d5e8dc;border-radius:20px;box-shadow:0 8px 24px rgba(0,63,50,.08)}
+.day-menu-title{text-align:center;font-size:30px;font-weight:900;color:#063d31;margin-bottom:22px}.meal-block{background:#fff;border:1px solid #d9e9df;border-radius:16px;padding:18px;margin-top:16px;box-shadow:0 4px 12px rgba(0,63,50,.05)}
+.meal-block-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}.meal-block-head>span{font-size:30px}.meal-block-head h3{font-size:23px;color:#087c49;text-transform:capitalize}.meal-block-head p{font-size:12px;color:#66756e;margin-top:3px}.meal-items{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.meal-item{border:1px solid #e1ebe5;border-radius:12px;overflow:hidden;background:#fbfdfc;text-align:center}.meal-photo{height:100px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#eef8f2,#fff4dc);font-size:42px}.meal-item h4{font-size:15px;padding:10px 6px;color:#16382f}.meal-note{font-size:13px;color:#66756e;padding:10px;text-align:center;border:1px dashed #cfe3d6;border-radius:10px;background:#fbfdfc}
+@media(max-width:900px){.days{grid-template-columns:repeat(4,1fr)!important}.meal-items{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.day-picker .section-title{font-size:24px}.days{grid-template-columns:repeat(2,1fr)!important}.day-menu-panel{margin-left:4%;margin-right:4%;padding:14px}.day-menu-title{font-size:24px}.meal-block{padding:14px}.meal-items{grid-template-columns:repeat(2,1fr);gap:8px}.meal-photo{height:82px;font-size:34px}.meal-item h4{font-size:13px}}
+</style>
 </head>
 <body>
 <header class="header">
@@ -114,7 +127,34 @@ a{text-decoration:none;color:inherit}button{font:inherit;border:0;cursor:pointer
   <div class="feature"><div class="icon">🌿</div><h3>Fresh<br>Ingredients</h3><p>High quality ingredients</p></div><div class="feature"><div class="icon">🛡️</div><h3>Hygienic<br>Preparation</h3><p>Clean and safe kitchen</p></div><div class="feature"><div class="icon">❤️</div><h3>Healthy<br>Meals</h3><p>Balanced nutrition</p></div><div class="feature"><div class="icon">₹</div><h3>Affordable<br>Pricing</h3><p>Great taste, great value</p></div><div class="feature"><div class="icon">👨‍🍳</div><h3>Freshly<br>Prepared</h3><p>Cooked with care</p></div>
 </section>
 
-<section class="section"><div class="section-title">🗓️ Choose Your Day</div><div class="days"><div class="day">Sun</div><div class="day">Mon</div><div class="day">Tue</div><div class="day">Wed</div><div class="day">Thu</div><div class="day">Fri</div><div class="day active">Sat</div></div></section>
+<section class="section day-picker" id="choose-day">
+  <div class="section-title">🗓️ Choose Your Day</div>
+  <div class="days">
+    <button class="day" data-day="Sunday">☀️<strong>Sunday</strong><span>View Menu →</span></button>
+    <button class="day" data-day="Monday">🌿<strong>Monday</strong><span>View Menu →</span></button>
+    <button class="day" data-day="Tuesday">🍽️<strong>Tuesday</strong><span>View Menu →</span></button>
+    <button class="day" data-day="Wednesday">📅<strong>Wednesday</strong><span>View Menu →</span></button>
+    <button class="day" data-day="Thursday">🍛<strong>Thursday</strong><span>View Menu →</span></button>
+    <button class="day" data-day="Friday">⭐<strong>Friday</strong><span>View Menu →</span></button>
+    <button class="day" data-day="Saturday">🥗<strong>Saturday</strong><span>View Menu →</span></button>
+  </div>
+</section>
+
+<section class="day-menu-panel" id="day-menu-panel" aria-live="polite" hidden>
+  <div class="day-menu-title"><span id="selected-day-icon">☀️</span> <span id="selected-day-name">Sunday</span> Menu</div>
+  <div class="meal-block">
+    <div class="meal-block-head"><span>🍳</span><div><h3>Breakfast</h3><p>7:00 AM – 10:00 AM</p></div></div>
+    <div class="meal-items" id="breakfast-items"></div>
+  </div>
+  <div class="meal-block">
+    <div class="meal-block-head"><span>🍛</span><div><h3>Lunch</h3><p>12:30 PM – 2:30 PM</p></div></div>
+    <div class="meal-items" id="lunch-items"></div>
+  </div>
+  <div class="meal-block">
+    <div class="meal-block-head"><span>🌙</span><div><h3>Dinner</h3><p>7:30 PM – 9:30 PM</p></div></div>
+    <div class="meal-items" id="dinner-items"></div>
+  </div>
+</section>
 
 <section class="menu-section" id="today">
   <div class="menu-head"><div><div class="section-title">🍴 Today's Menu</div><div class="underline"></div></div><button class="small-btn">View Full Menu →</button></div>
@@ -134,5 +174,35 @@ a{text-decoration:none;color:inherit}button{font:inherit;border:0;cursor:pointer
 <footer class="footer" id="contact">
   <div class="footer-item"><div class="ficon">🌿</div><div><h3>Quality Food</h3><p>Prepared with fresh<br>ingredients</p></div></div><div class="footer-item"><div class="ficon">🛡️</div><div><h3>Hygienic &amp; Safe</h3><p>Clean and well<br>maintained kitchen</p></div></div><div class="footer-item"><div class="ficon">👥</div><div><h3>Affordable</h3><p>Delicious meals<br>at reasonable prices</p></div></div><div class="footer-item"><div class="ficon">❤️</div><div><h3>Healthy Life</h3><p>Nutritious meals<br>for a better you</p></div></div>
 </footer>
+
+<script>
+// CHOOSE YOUR DAY — only this section is interactive
+(function(){
+  const data={
+    Sunday:{icon:'☀️',breakfast:['Idly','Dosa','Vada','Upma'],lunch:['Rice','Dal','Vegetable Curry','Curd'],dinner:['Roti','Curry','Rice','Salad']},
+    Monday:{icon:'🌿',breakfast:['Poha','Idly','Sambar','Fruit'],lunch:['Rice','Dal','Mixed Veg','Curd'],dinner:['Chapati','Paneer Curry','Rice','Dal']},
+    Tuesday:{icon:'🍽️',breakfast:['Pongal','Vada','Chutney','Tea'],lunch:['Rice','Sambar','Beans Curry','Curd'],dinner:['Roti','Dal','Vegetable Curry','Rice']},
+    Wednesday:{icon:'📅',breakfast:['Upma','Dosa','Chutney','Milk'],lunch:['Rice','Dal','Cabbage Curry','Buttermilk'],dinner:['Chapati','Chicken Curry','Rice','Salad']},
+    Thursday:{icon:'🍛',breakfast:['Idly','Vada','Sambar','Tea'],lunch:['Rice','Dal','Aloo Curry','Curd'],dinner:['Roti','Mixed Curry','Rice','Dal']},
+    Friday:{icon:'⭐',breakfast:['Poori','Chole','Fruit','Tea'],lunch:['Rice','Dal','Special Curry','Sweet'],dinner:['Chapati','Paneer Curry','Rice','Salad']},
+    Saturday:{icon:'🥗',breakfast:['Dosa','Vada','Sambar','Coffee'],lunch:['Rice','Dal','Vegetable Curry','Curd'],dinner:['Roti','Special Curry','Rice','Sweet']}
+  };
+  const icons=['🍚','🥣','🥗','🍲'];
+  const buttons=document.querySelectorAll('.day[data-day]');
+  const panel=document.getElementById('day-menu-panel');
+  function render(day){
+    const d=data[day]; if(!d)return;
+    document.getElementById('selected-day-icon').textContent=d.icon;
+    document.getElementById('selected-day-name').textContent=day;
+    [['breakfast-items',d.breakfast],['lunch-items',d.lunch],['dinner-items',d.dinner]].forEach(([id,items])=>{
+      document.getElementById(id).innerHTML=items.map((name,i)=>`<div class="meal-item"><div class="meal-photo">${icons[i%icons.length]}</div><h4>${name}</h4></div>`).join('');
+    });
+    panel.hidden=false;
+    panel.scrollIntoView({behavior:'smooth',block:'start'});
+    buttons.forEach(b=>b.classList.toggle('selected',b.dataset.day===day));
+  }
+  buttons.forEach(b=>b.addEventListener('click',()=>render(b.dataset.day)));
+})();
+</script>
 </body>
 </html>
