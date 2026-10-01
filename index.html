@@ -255,6 +255,104 @@ a{text-decoration:none;color:inherit}button{font:inherit;border:0;cursor:pointer
 @media(max-width:480px){.blog-grid,.footer-grid{grid-template-columns:1fr}.blog-visual{height:150px}}
 </style>
 
+
+<style id="final-mobile-responsive">
+/* FINAL MOBILE RESPONSIVE — mobile only; desktop layout unchanged */
+html,body{max-width:100%;overflow-x:hidden}
+@media (max-width: 700px){
+  .header{height:auto;min-height:64px;padding:10px 14px;gap:0;justify-content:center;position:relative}
+  .logo{min-width:0;width:auto;gap:7px}
+  .logo-mark{width:42px;height:42px}
+  .logo-text{font-size:28px;letter-spacing:-1.2px}
+  .tagline{font-size:8px;margin-top:20px}
+  .nav{display:none}
+
+  .hero{height:245px;background-position:center;background-size:cover}
+  .hero-copy{width:100%;padding:18px 14px}
+  .hero h1{font-size:32px!important;line-height:1.05}
+  .welcome{font-size:19px!important;padding:7px 15px!important}
+
+  .features{grid-template-columns:repeat(2,minmax(0,1fr))!important;padding:14px 4%!important;gap:0!important}
+  .feature{padding:12px 8px!important;min-height:118px!important}
+  .feature .icon{font-size:26px!important}
+  .feature h3{font-size:15px!important;line-height:1.05}
+  .feature p{font-size:11px!important;line-height:1.25}
+
+  .day-picker{padding-left:4%!important;padding-right:4%!important}
+  .day-picker .section-title{font-size:23px!important;margin-bottom:14px}
+  .days{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important}
+  .day{height:132px!important;min-height:132px!important;border-radius:18px!important;padding:10px!important}
+  .day-icon{width:48px!important;height:48px!important;font-size:25px!important}
+  .day strong{font-size:18px!important}
+  .day-action{font-size:12px!important}
+
+  .day-menu-banner-wrap{padding:0 4% 14px!important}
+  .day-menu-banner{height:112px!important;border-radius:18px!important;padding:0 10px 0 12px!important}
+  .day-banner-content{gap:8px!important}
+  .day-banner-icon{width:52px!important;height:52px!important;font-size:26px!important}
+  .day-banner-title{font-size:25px!important}
+  .day-banner-line{width:78px!important;height:3px!important;margin-top:8px!important}
+  .day-banner-food{width:105px!important;height:92px!important}
+  .food-plate{width:82px!important;height:58px!important;font-size:21px!important}
+  .food-plate span:nth-child(2){font-size:24px!important}
+  .food-plate span:nth-child(3){font-size:19px!important}
+
+  .menu-section{padding:10px 0 8px!important}
+  .menu-section .menu-grid{grid-template-columns:1fr!important;padding:0 4%!important;gap:14px!important}
+  .menu-section .menu-card{min-height:0!important;padding:0!important;border-radius:20px!important;overflow:hidden}
+  .menu-section .menu-card .card-head{padding:14px 16px 10px!important}
+  .menu-section .menu-card .card-head h3{font-size:22px!important}
+  .menu-section .menu-card .menu-img{height:190px!important}
+  .menu-section .menu-card .small-btn{height:46px!important;margin:10px 14px 14px!important;width:calc(100% - 28px)!important}
+
+  .quick-grid{grid-template-columns:1fr!important;gap:14px!important;margin:18px 4% 0!important}
+  .quick{height:250px!important;min-height:250px!important;border-radius:20px!important;padding:15px 15px 14px!important}
+  .quick h3{font-size:23px!important}
+  .quick p{font-size:13px!important}
+  .quick .quick-visual{height:105px!important;border-radius:14px!important}
+  .quick .small-btn{height:44px!important;font-size:13px!important}
+
+  .footer{grid-template-columns:1fr!important;gap:12px!important;padding:18px 4%!important}
+  .footer-item{min-height:118px!important;padding:14px!important;border-radius:18px!important}
+  .footer-item .ficon{width:54px!important;height:54px!important;min-width:54px!important;font-size:28px!important}
+  .footer-item h3{font-size:18px!important}
+  .footer-item p{font-size:12px!important}
+
+  .blog-section{padding:24px 4% 28px!important}
+  .blog-head{display:block!important;margin-bottom:14px!important}
+  .blog-title{font-size:25px!important}
+  .blog-subtitle{font-size:13px!important}
+  .blog-all{width:100%;margin-top:12px;padding:10px 14px!important}
+  .blog-grid{grid-template-columns:1fr!important;gap:14px!important}
+  .blog-visual{height:145px!important}
+  .blog-body{padding:13px 14px 15px!important}
+  .blog-body h3{font-size:17px!important}
+
+  .site-footer{padding:28px 5% 16px!important}
+  .footer-grid{grid-template-columns:1fr!important;gap:22px!important}
+  .footer-brand h2{font-size:28px!important}
+  .footer-brand p{font-size:13px!important}
+  .footer-col h3{font-size:17px!important}
+  .footer-col a,.footer-contact p{font-size:13px!important}
+  .footer-sub input,.footer-sub button{height:46px!important}
+  .footer-bottom{display:block!important;text-align:center!important;line-height:1.6;margin-top:20px!important}
+  .footer-bottom span{display:block;margin-top:6px}
+}
+@media (max-width: 380px){
+  .logo-text{font-size:25px}
+  .tagline{display:none}
+  .hero{height:215px}
+  .features{grid-template-columns:1fr 1fr!important}
+  .day{height:124px!important;min-height:124px!important}
+  .day strong{font-size:16px!important}
+  .day-menu-banner{height:100px!important}
+  .day-banner-title{font-size:22px!important}
+  .day-banner-food{width:90px!important}
+  .menu-section .menu-card .menu-img{height:165px!important}
+  .quick{height:235px!important;min-height:235px!important}
+}
+</style>
+
 </head>
 <body>
 <header class="header">
