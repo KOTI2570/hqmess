@@ -147,6 +147,31 @@ a{text-decoration:none;color:inherit}button{font:inherit;border:0;cursor:pointer
 @media(max-width:900px){.day-menu-banner{height:87px;padding:0 12px 0 15px}.day-banner-title{font-size:24px}.day-banner-icon{width:47px;height:47px;font-size:24px}.day-banner-food{width:108px}.food-plate{width:75px;height:53px;font-size:20px}.food-plate span:nth-child(2){font-size:23px}}
 @media(max-width:600px){.day-menu-banner-wrap{padding:0 4% 20px!important}.day-menu-banner{height:140px;border-radius:20px;padding:0 12px 0 18px}.day-banner-content{gap:12px}.day-banner-icon{width:64px;height:64px;font-size:32px}.day-banner-title{font-size:30px}.day-banner-line{width:100px;height:4px;margin-top:12px}.day-banner-food{width:125px;height:110px}.food-plate{width:100px;height:70px;font-size:26px;border-width:3px}.food-plate span:nth-child(2){font-size:30px}.food-plate span:nth-child(3){font-size:23px}}
 </style>
+
+<style>
+/* Meal cards — attractive redesign only */
+.menu-section .menu-grid{gap:22px;padding:0 3.5%;align-items:stretch;}
+.menu-section .menu-card{position:relative;overflow:hidden;min-height:0;padding:0 0 18px;background:linear-gradient(180deg,#ffffff 0%,#f8fcfa 100%);border:1px solid #d7e9df;border-radius:24px;box-shadow:0 12px 30px rgba(0,63,50,.10);text-align:left;transition:transform .2s ease,box-shadow .2s ease;}
+.menu-section .menu-card:hover{transform:translateY(-4px);box-shadow:0 18px 38px rgba(0,63,50,.16);}
+.menu-section .menu-card .card-head{display:flex;align-items:center;gap:14px;padding:18px 20px 14px;}
+.menu-section .menu-card .meal-icon{width:52px;height:52px;min-width:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#fff;box-shadow:0 6px 16px rgba(0,0,0,.10);font-size:27px;border:2px solid #eef4ef;}
+.menu-section .menu-card .card-head h3{font-size:25px;font-weight:900;color:#087c49;line-height:1.05;}
+.menu-section .menu-card .time{font-size:13px;color:#64746d;margin-top:5px;font-weight:600;}
+.menu-section .menu-card .menu-img{display:block;width:100%;height:190px;object-fit:cover;margin:0;border-top:1px solid #edf3ef;border-bottom:1px solid #edf3ef;}
+.menu-section .menu-card>p{font-size:14px;line-height:1.55;color:#4d625a;text-align:center;padding:13px 18px 8px;min-height:58px;font-weight:600;}
+.menu-section .menu-card .small-btn{display:block;width:calc(100% - 36px);margin:8px 18px 0;padding:12px 16px;border-radius:999px;background:linear-gradient(90deg,#087c49,#2aa85b);color:#fff;font-weight:800;font-size:14px;box-shadow:0 7px 16px rgba(8,124,73,.18);}
+.menu-section .menu-card.breakfast{background:linear-gradient(180deg,#fffaf0 0%,#fff 36%,#f8fcfa 100%);}
+.menu-section .menu-card.breakfast .meal-icon{background:#fff4c9;}
+.menu-section .menu-card.breakfast .small-btn{background:linear-gradient(90deg,#f39b18,#f6c900);color:#173b2f;}
+.menu-section .menu-card.lunch{background:linear-gradient(180deg,#f1fbff 0%,#fff 36%,#f8fcfa 100%);}
+.menu-section .menu-card.lunch .meal-icon{background:#e7f5ff;}
+.menu-section .menu-card.lunch .small-btn{background:linear-gradient(90deg,#1497df,#39b8ee);}
+.menu-section .menu-card.dinner{background:linear-gradient(180deg,#fff5ee 0%,#fff 36%,#f8fcfa 100%);}
+.menu-section .menu-card.dinner .meal-icon{background:#fff0df;}
+.menu-section .menu-card.dinner .small-btn{background:linear-gradient(90deg,#e8752a,#f3a33b);}
+@media(max-width:900px){.menu-section .menu-grid{padding:0 3%;gap:16px}.menu-section .menu-card .menu-img{height:165px}.menu-section .menu-card .card-head h3{font-size:22px;}}
+@media(max-width:600px){.menu-section .menu-grid{grid-template-columns:1fr;padding:0 4%;}.menu-section .menu-card .menu-img{height:180px;}.menu-section .menu-card .card-head{padding:15px 16px 12px;}}
+</style>
 </head>
 <body>
 <header class="header">
@@ -236,4 +261,3 @@ a{text-decoration:none;color:inherit}button{font:inherit;border:0;cursor:pointer
 </script>
 </body>
 </html>
-
