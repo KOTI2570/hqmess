@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b6b43">
+<title>HQ MESS — Digital Menu</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#home" aria-label="HQ MESS Home">
+    <span class="brand-mark">♨</span>
+    <span class="brand-name">HQ <b>MESS</b><small>Good Food • Healthy Life • Every Day</small></span>
+  </a>
+  <nav aria-label="Main navigation">
+    <button class="nav-btn active" data-target="home"><span class="nav-icon">⌂</span><span>Home</span></button>
+    <button class="nav-btn" data-target="weekly"><span class="nav-icon">▦</span><span>Weekly Menu</span></button>
+    <button class="nav-btn" data-target="extras"><span class="nav-icon">♨</span><span>Extra Items</span></button>
+    <button class="nav-btn" data-target="tea"><span class="nav-icon">☕</span><span>Tea Party</span></button>
+    <button class="nav-btn" data-target="special"><span class="nav-icon">★</span><span>Specials</span></button>
+  </nav>
+</header>
+
+<main>
+<section id="home" class="hero-section">
+  <div class="hero-glow"></div>
+  <div class="hero-copy">
+    <div class="eyebrow"><span></span> WELCOME TO HQ MESS</div>
+    <p class="welcome">Good food. Good health. Every day.</p>
+    <h1><span>HQ</span> <b>MESS</b></h1>
+    <p class="hero-tagline">Nutritious <i>•</i> Hygienic <i>•</i> Affordable <i>•</i> Freshly Prepared</p>
+    <div class="hero-actions">
+      <button id="todayBtn" class="primary-cta">VIEW TODAY'S MENU <span>→</span></button>
+      <button class="ghost-cta" onclick="document.getElementById('weekly').scrollIntoView({behavior:'smooth'})">VIEW WEEKLY MENU</button>
+    </div>
+    <div class="trust-row">
+      <div><span>🌿</span><strong>Fresh</strong><small>Ingredients</small></div>
+      <div><span>🛡️</span><strong>Clean</strong><small>Preparation</small></div>
+      <div><span>♥</span><strong>Healthy</strong><small>Meals</small></div>
+    </div>
+  </div>
+  <div class="hero-visual" aria-hidden="true">
+    <div class="hero-ring ring-one"></div><div class="hero-ring ring-two"></div>
+    <div class="plate">
+      <div class="rice">🍚</div>
+      <div class="dish dish-one">🥕</div><div class="dish dish-two">🥦</div><div class="dish dish-three">🥔</div>
+      <div class="leaf">🌿</div>
+    </div>
+    <div class="food-badge"><b>Fresh</b><span>&amp; Tasty</span></div>
+  </div>
+</section>
+
+<section class="days-wrap" aria-label="Select day">
+  <div class="days-label"><span>📅</span><div><b>MENU</b><small>Choose your day</small></div></div>
+  <div class="days">
+    <button class="day active" data-day="Sunday">Sun</button><button class="day" data-day="Monday">Mon</button><button class="day" data-day="Tuesday">Tue</button><button class="day" data-day="Wednesday">Wed</button><button class="day" data-day="Thursday">Thu</button><button class="day" data-day="Friday">Fri</button><button class="day" data-day="Saturday">Sat</button>
+  </div>
+</section>
+
+<section class="today section-card" aria-labelledby="todayTitle">
+  <div class="section-title">
+    <span class="title-icon">🍽️</span>
+    <div><p class="section-kicker">FRESHLY PREPARED</p><h2 id="todayTitle">TODAY'S <b>MENU</b></h2><strong id="selectedDay">SUNDAY</strong></div>
+  </div>
+  <div id="mealGrid" class="meal-grid"></div>
+</section>
+
+<section id="extras" class="section-card extras-section">
+  <div class="section-heading"><div><p class="section-kicker">SOMETHING EXTRA?</p><h2>🍽️ EXTRA ITEMS <small>(With Prices)</small></h2></div><span class="heading-chip">POPULAR</span></div>
+  <div id="extraGrid" class="item-grid"></div>
+</section>
+
+<section id="tea" class="section-card tea-section">
+  <div class="section-heading"><div><p class="section-kicker">A LITTLE BREAK</p><h2>☕ TEA PARTY <b>MENU</b> <small>(No Prices)</small></h2></div><span class="heading-chip blue">TEA TIME</span></div>
+  <div id="teaGrid" class="item-grid"></div>
+</section>
+
+<section id="special" class="special section-card">
+  <div class="section-heading"><div><p class="section-kicker">CHEF'S PICK</p><h2>⭐ TODAY'S <b>SPECIAL</b></h2></div></div>
+  <div class="special-box"><div class="special-emoji">🍗</div><div><span class="special-label">HOUSE SPECIAL</span><h3>Special Chicken Biryani</h3><p>Special curry • Special sweet</p></div><span class="special-star">★</span></div>
+</section>
+
+<section id="weekly" class="weekly section-card">
+  <div class="section-heading"><div><p class="section-kicker">PLAN AHEAD</p><h2>▣ THIS WEEK'S <b>MENU</b></h2></div></div>
+  <div class="week-cards" id="weekCards"></div>
+</section>
+</main>
+
+<footer>
+  <div class="footer-brand"><b>HQ <span>MESS</span></b><small>Good Food • Healthy Life • Every Day</small></div>
+  <div>🌿 Fresh Ingredients</div><div>🛡️ Hygienic Preparation</div><div>♥ Nutritious Meals</div><div>👥 For Our Community</div>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>
