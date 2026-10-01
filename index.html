@@ -210,6 +210,23 @@ a{text-decoration:none;color:inherit}button{font:inherit;border:0;cursor:pointer
 @media(max-width:650px){.quick-grid{grid-template-columns:1fr!important;gap:16px!important}.quick{height:275px!important;min-height:275px!important}}
 
 </style>
+
+<style>
+/* FOUR BENEFIT CARDS — attractive refresh only */
+.footer{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:22px!important;padding:28px 3.5%!important;margin-top:28px!important;background:#fff!important}
+.footer-item{min-height:150px!important;border:1px solid #dce9e2!important;border-radius:24px!important;padding:22px 20px!important;display:flex!important;align-items:center!important;gap:18px!important;position:relative!important;overflow:hidden!important;box-shadow:0 10px 24px rgba(0,63,50,.09)!important;background:linear-gradient(135deg,#f4fff5,#e2f8e6)!important}
+.footer-item:after{content:"";position:absolute;right:-28px;bottom:-34px;width:110px;height:110px;border-radius:50%;background:rgba(255,255,255,.42)!important}
+.footer-item .ficon{width:72px!important;height:72px!important;min-width:72px!important;border-radius:50%!important;display:flex!important;align-items:center!important;justify-content:center!important;font-size:38px!important;background:#fff!important;box-shadow:0 6px 16px rgba(0,0,0,.10)!important;position:relative!important;z-index:2!important}
+.footer-item h3{font-size:21px!important;line-height:1.1!important;font-weight:900!important;margin:0 0 7px!important;position:relative!important;z-index:2!important}
+.footer-item p{font-size:14px!important;line-height:1.4!important;font-weight:700!important;color:#53635e!important;margin:0!important;position:relative!important;z-index:2!important}
+.footer-item:nth-child(1){background:linear-gradient(135deg,#effff0,#d8f5dd)!important;border-color:#b8e2be!important}.footer-item:nth-child(1) h3{color:#087c49!important}
+.footer-item:nth-child(2){background:linear-gradient(135deg,#eefaff,#d8f1ff)!important;border-color:#b8ddec!important}.footer-item:nth-child(2) h3{color:#086aa3!important}
+.footer-item:nth-child(3){background:linear-gradient(135deg,#fff9e9,#ffedc5)!important;border-color:#f0d79b!important}.footer-item:nth-child(3) h3{color:#a85a00!important}
+.footer-item:nth-child(4){background:linear-gradient(135deg,#fff1f6,#ffe0ec)!important;border-color:#f0bfd1!important}.footer-item:nth-child(4) h3{color:#b32658!important}
+@media(max-width:1000px){.footer{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media(max-width:650px){.footer{grid-template-columns:1fr 1fr!important;gap:14px!important;padding:22px 5%!important}.footer-item{min-height:135px!important;padding:16px!important;gap:12px!important}.footer-item .ficon{width:58px!important;height:58px!important;min-width:58px!important;font-size:30px!important}.footer-item h3{font-size:17px!important}.footer-item p{font-size:12px!important}}
+@media(max-width:430px){.footer{grid-template-columns:1fr!important}.footer-item{min-height:125px!important}}
+</style>
 </head>
 <body>
 <header class="header">
