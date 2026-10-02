@@ -1142,3 +1142,40 @@ html,body{max-width:100%;overflow-x:hidden}
   .nav a.active,.nav .contact{padding-left:2px!important;padding-right:2px!important;}
 }
 </style>
+
+<style id="mobile-header-top-bottom-space-30-reduction">
+@media (max-width:700px){
+  .header{
+    min-height:90px!important;
+    height:auto!important;
+    padding:5px 4px 4px!important;
+    gap:3px!important;
+  }
+  .logo{
+    height:50px!important;
+    flex:0 0 50px!important;
+    gap:7px!important;
+  }
+  .logo-mark{width:44px!important;height:44px!important;}
+  .logo > div{height:46px!important;}
+  .logo-text{font-size:29px!important;line-height:.94!important;}
+  .tagline{font-size:8.5px!important;margin-top:1px!important;}
+  .nav{padding:1px 0 0!important;gap:4px!important;}
+  .nav a,.nav a.active,.nav .contact{
+    height:24px!important;
+    min-height:24px!important;
+    padding:2px 1px!important;
+    font-size:9px!important;
+    border-radius:9px!important;
+  }
+}
+@media (max-width:380px){
+  .header{padding:4px 3px 3px!important;gap:2px!important;min-height:86px!important;}
+  .logo{height:47px!important;flex-basis:47px!important;}
+  .logo-mark{width:42px!important;height:42px!important;}
+  .logo-text{font-size:27px!important;}
+  .tagline{font-size:8px!important;}
+  .nav{gap:3px!important;}
+  .nav a,.nav a.active,.nav .contact{height:23px!important;min-height:23px!important;font-size:8.7px!important;}
+}
+</style>
