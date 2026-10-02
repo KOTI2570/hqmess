@@ -1047,3 +1047,59 @@ html,body{max-width:100%;overflow-x:hidden}
   .nav a,.nav a.active,.contact{font-size:9.5px!important;padding-left:1px!important;padding-right:1px!important}
 }
 </style>
+
+<style>
+/* FINAL MOBILE HEADER OVERLAP FIX — navigation only */
+@media (max-width: 700px){
+  .header{
+    width:100%!important;
+    box-sizing:border-box!important;
+    padding:9px 6px 8px!important;
+    gap:6px!important;
+    min-height:128px!important;
+    overflow:hidden!important;
+  }
+  .logo{
+    width:100%!important;
+    min-width:0!important;
+    flex:0 0 100%!important;
+    justify-content:center!important;
+  }
+  .logo-text{font-size:31px!important;}
+  .tagline{font-size:9px!important;}
+  .nav{
+    width:100%!important;
+    min-width:0!important;
+    margin:0!important;
+    padding:2px 0 0!important;
+    display:grid!important;
+    grid-template-columns:repeat(6,minmax(0,1fr))!important;
+    gap:3px!important;
+    overflow:hidden!important;
+    justify-content:initial!important;
+    align-items:stretch!important;
+  }
+  .nav a,
+  .nav a.active,
+  .nav .contact{
+    min-width:0!important;
+    width:100%!important;
+    box-sizing:border-box!important;
+    margin:0!important;
+    padding:7px 2px!important;
+    height:44px!important;
+    min-height:44px!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    text-align:center!important;
+    white-space:normal!important;
+    overflow:hidden!important;
+    font-size:10.5px!important;
+    line-height:1.05!important;
+    letter-spacing:-.1px!important;
+    border-radius:10px!important;
+  }
+  .nav a.active,.nav .contact{padding-left:2px!important;padding-right:2px!important;}
+}
+</style>
