@@ -780,6 +780,45 @@ html,body{max-width:100%;overflow-x:hidden}
 </style>
 
 </body>
+
+<style>
+/* FINAL MOBILE HEADER — single-line labels + compact Home/Contact */
+@media (max-width:700px){
+  .nav{
+    grid-template-columns:repeat(6,minmax(0,1fr))!important;
+    gap:3px!important;
+    align-items:center!important;
+    overflow:hidden!important;
+  }
+  .nav a,.nav a.active,.nav .contact{
+    height:25px!important;
+    min-height:25px!important;
+    padding:0 1px!important;
+    margin:0!important;
+    box-sizing:border-box!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    flex-wrap:nowrap!important;
+    white-space:nowrap!important;
+    word-break:keep-all!important;
+    overflow:hidden!important;
+    font-size:9.5px!important;
+    line-height:1!important;
+    letter-spacing:-.15px!important;
+  }
+  .nav a.active,.nav .contact{
+    height:25px!important;
+    min-height:25px!important;
+    padding:0 2px!important;
+  }
+}
+@media (max-width:380px){
+  .nav{gap:2px!important;}
+  .nav a,.nav a.active,.nav .contact{font-size:8.8px!important;height:24px!important;min-height:24px!important;}
+}
+</style>
+
 </html>
 <style>
 /* FINAL MOBILE DAY ROW FIX: 7 equal boxes, no horizontal scroll. */
