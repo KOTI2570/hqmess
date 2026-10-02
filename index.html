@@ -583,6 +583,40 @@ html,body{max-width:100%;overflow-x:hidden}
 </style>
 </style>
 
+
+<style>
+/* MOBILE HEADER ONLY — keep the existing header design, fit the full navigation without horizontal scrolling */
+@media (max-width:700px){
+  .header{min-height:96px!important;height:auto!important;padding:9px 6px 0!important;gap:7px!important;}
+  .nav{
+    display:grid!important;
+    grid-template-columns:repeat(6,minmax(0,1fr))!important;
+    width:100%!important;
+    margin:0!important;
+    padding:2px 0 8px!important;
+    gap:2px!important;
+    overflow:visible!important;
+    justify-content:stretch!important;
+  }
+  .nav a,.nav a.active,.contact{
+    min-width:0!important;
+    width:100%!important;
+    margin:0!important;
+    padding:7px 1px!important;
+    border-radius:9px!important;
+    font-size:9px!important;
+    line-height:1.05!important;
+    text-align:center!important;
+    white-space:nowrap!important;
+    overflow:visible!important;
+  }
+}
+@media (max-width:380px){
+  .nav{gap:1px!important;}
+  .nav a,.nav a.active,.contact{font-size:8px!important;padding:6px 0!important;border-radius:8px!important;}
+}
+</style>
+
 </head>
 <body>
 <header class="header">
