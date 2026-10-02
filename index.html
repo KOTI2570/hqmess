@@ -512,6 +512,34 @@ html,body{max-width:100%;overflow-x:hidden}
   .menu-section .menu-card>p{font-size:8px!important;min-height:46px!important}
   .menu-section .menu-card .small-btn{font-size:8px!important;height:29px!important}
 }
+
+/* MOBILE: keep all 5 feature items in one horizontal row */
+@media (max-width:650px){
+  .features{
+    grid-template-columns:repeat(5,minmax(0,1fr)) !important;
+    padding:14px 3% !important;
+    gap:0 !important;
+    min-height:0 !important;
+  }
+  .feature{
+    padding:8px 3px !important;
+    min-height:82px !important;
+    border-right:1px solid #cfe3d6 !important;
+    border-bottom:0 !important;
+    justify-content:flex-start !important;
+  }
+  .feature:last-child{border-right:0 !important;}
+  .feature .icon{font-size:21px !important; line-height:1.1 !important; margin-bottom:3px !important;}
+  .feature h3{font-size:10px !important; line-height:1.05 !important; margin:0 !important;}
+  .feature p{font-size:7.5px !important; line-height:1.15 !important; margin:3px 0 0 !important;}
+}
+@media (max-width:380px){
+  .features{padding-left:2% !important; padding-right:2% !important;}
+  .feature{padding-left:2px !important; padding-right:2px !important; min-height:78px !important;}
+  .feature .icon{font-size:19px !important;}
+  .feature h3{font-size:9px !important;}
+  .feature p{font-size:7px !important;}
+}
 </style>
 
 </head>
