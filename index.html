@@ -743,3 +743,43 @@ html,body{max-width:100%;overflow-x:hidden}
   .day-picker .day::after{left:7px !important;right:7px !important;bottom:5px !important;height:2px !important;}
 }
 </style>
+<style id="final-seven-days-compact">
+/* FINAL MOBILE: all 7 day cards fit in one row, no horizontal scrolling */
+@media (max-width:700px){
+  .day-picker{padding:16px 0 12px!important;overflow:hidden!important}
+  .day-picker .section-title{padding:0 4%!important;font-size:22px!important;margin-bottom:10px!important}
+  .days{
+    display:flex!important;
+    width:100%!important;
+    box-sizing:border-box!important;
+    overflow:hidden!important;
+    gap:3px!important;
+    padding:2px 4% 6px!important;
+    scrollbar-width:none!important;
+    -ms-overflow-style:none!important;
+  }
+  .days::-webkit-scrollbar{display:none!important}
+  .day{
+    flex:0 0 calc((100% - 18px)/7)!important;
+    width:calc((100% - 18px)/7)!important;
+    height:86px!important;
+    min-height:86px!important;
+    box-sizing:border-box!important;
+    padding:5px 2px!important;
+    border-radius:12px!important;
+    gap:2px!important;
+    overflow:hidden!important;
+  }
+  .day-icon{width:28px!important;height:28px!important;font-size:17px!important;flex:0 0 28px!important}
+  .day strong{font-size:11.5px!important;line-height:1.05!important;white-space:nowrap!important;letter-spacing:-.2px!important}
+  .day-action{font-size:9px!important;line-height:1!important;white-space:nowrap!important;font-weight:800!important}
+  .day::after{left:7px!important;right:7px!important;bottom:4px!important;height:3px!important}
+}
+@media (max-width:380px){
+  .day-picker .section-title{font-size:21px!important}
+  .day{height:82px!important;min-height:82px!important;padding:4px 1px!important}
+  .day-icon{width:26px!important;height:26px!important;font-size:16px!important;flex-basis:26px!important}
+  .day strong{font-size:10.5px!important}
+  .day-action{font-size:8px!important}
+}
+</style>
