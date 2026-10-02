@@ -1189,8 +1189,18 @@ html,body{max-width:100%;overflow-x:hidden}
 </style>
 <style id="mobile-features-choose-no-gap-final">
 @media (max-width:650px){
-  .features{padding-bottom:0 !important;}
   .day-picker{padding-top:0 !important;}
   .day-picker .section-title{margin-top:0 !important;}
+}
+</style>
+<style id="mobile-monday-banner-final-adjustment">
+@media (max-width:650px){
+  /* Monday banner: reduce height by 30% and remove all space above it. */
+  .day-picker .days{padding-bottom:0 !important;}
+  .day-menu-banner-wrap{padding-top:0 !important;padding-bottom:0 !important;margin-top:0 !important;}
+   .day-menu-banner{height:78px !important;min-height:78px !important;}
+}
+@media (max-width:600px){
+  .day-menu-banner{height:64px !important;min-height:64px !important;}
 }
 </style>
