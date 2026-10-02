@@ -933,3 +933,68 @@ html,body{max-width:100%;overflow-x:hidden}
   .day-picker .day-action{font-size:5.8px!important;}
 }
 </style>
+
+<style>
+/* FINAL MOBILE HEADER SPACING — header design unchanged, no horizontal scroll */
+@media (max-width:700px){
+  .header{
+    min-height:112px!important;
+    height:auto!important;
+    padding:8px 4px 7px!important;
+    gap:5px!important;
+    flex-direction:column!important;
+    flex-wrap:nowrap!important;
+    justify-content:center!important;
+  }
+  .logo{
+    width:100%!important;
+    min-width:0!important;
+    height:58px!important;
+    flex:none!important;
+    justify-content:center!important;
+    gap:8px!important;
+  }
+  .logo-mark{width:48px!important;height:48px!important}
+  .logo-text{font-size:30px!important;letter-spacing:-1.7px!important}
+  .tagline{font-size:9px!important;margin-top:6px!important;letter-spacing:0!important}
+  .nav{
+    width:100%!important;
+    order:0!important;
+    margin:0!important;
+    padding:2px 0 0!important;
+    display:grid!important;
+    grid-template-columns:repeat(6,minmax(0,1fr))!important;
+    gap:2px!important;
+    overflow:visible!important;
+    justify-content:initial!important;
+    align-items:center!important;
+    border-radius:0!important;
+  }
+  .nav a,
+  .nav a.active,
+  .contact{
+    min-width:0!important;
+    width:100%!important;
+    margin:0!important;
+    padding:9px 2px!important;
+    border-radius:10px!important;
+    font-size:10.5px!important;
+    line-height:1.05!important;
+    text-align:center!important;
+    white-space:nowrap!important;
+    overflow:hidden!important;
+    text-overflow:clip!important;
+    box-shadow:none!important;
+    transform:none!important;
+  }
+  .nav a.active,.contact{box-shadow:0 4px 10px rgba(8,124,73,.14)!important}
+}
+@media (max-width:380px){
+  .header{padding-left:3px!important;padding-right:3px!important}
+  .logo-text{font-size:28px!important}
+  .logo-mark{width:44px!important;height:44px!important}
+  .tagline{font-size:8px!important}
+  .nav{gap:1px!important}
+  .nav a,.nav a.active,.contact{font-size:9.5px!important;padding-left:1px!important;padding-right:1px!important}
+}
+</style>
