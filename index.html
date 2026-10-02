@@ -529,6 +529,58 @@ html,body{max-width:100%;overflow-x:hidden}
   .feature h3{font-size:9px !important;}
   .feature p{font-size:7px !important;}
 }
+
+<style id="mobile-seven-days-fit">
+/* MOBILE: show all 7 Choose Your Day boxes in one row, no horizontal scroll. */
+@media (max-width:650px){
+  .day-picker .days{
+    display:grid !important;
+    grid-template-columns:repeat(7,minmax(0,1fr)) !important;
+    width:100% !important;
+    gap:4px !important;
+    overflow:visible !important;
+    padding:2px 3% 8px !important;
+    box-sizing:border-box !important;
+  }
+  .day-picker .day{
+    min-width:0 !important;
+    width:auto !important;
+    flex:initial !important;
+    height:86px !important;
+    min-height:86px !important;
+    padding:6px 2px !important;
+    border-radius:10px !important;
+    gap:2px !important;
+  }
+  .day-picker .day-icon{
+    width:24px !important;
+    height:24px !important;
+    font-size:15px !important;
+  }
+  .day-picker .day strong{
+    font-size:8.5px !important;
+    line-height:1.05 !important;
+    white-space:nowrap !important;
+  }
+  .day-picker .day-action{
+    font-size:6.5px !important;
+    line-height:1 !important;
+    white-space:nowrap !important;
+  }
+  .day-picker .day::after{
+    left:4px !important;
+    right:4px !important;
+    bottom:3px !important;
+  }
+}
+@media (max-width:380px){
+  .day-picker .days{gap:3px !important;padding-left:2% !important;padding-right:2% !important;}
+  .day-picker .day{height:82px !important;min-height:82px !important;padding:5px 1px !important;}
+  .day-picker .day-icon{width:22px !important;height:22px !important;font-size:14px !important;}
+  .day-picker .day strong{font-size:8px !important;}
+  .day-picker .day-action{font-size:6px !important;}
+}
+</style>
 </style>
 
 </head>
