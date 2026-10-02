@@ -699,3 +699,47 @@ html,body{max-width:100%;overflow-x:hidden}
 </script>
 </body>
 </html>
+<style>
+/* FINAL MOBILE DAY ROW FIX: 7 equal boxes, no horizontal scroll. */
+@media (max-width: 650px){
+  .day-picker .days{
+    display:grid !important;
+    grid-template-columns:repeat(7,minmax(0,1fr)) !important;
+    gap:4px !important;
+    width:100% !important;
+    overflow:visible !important;
+  }
+  .day-picker .day{
+    width:100% !important;
+    min-width:0 !important;
+    max-width:none !important;
+    height:112px !important;
+    min-height:112px !important;
+    padding:6px 2px !important;
+    border-radius:12px !important;
+    gap:5px !important;
+    box-sizing:border-box !important;
+  }
+  .day-picker .day-icon{
+    width:30px !important;
+    height:30px !important;
+    font-size:17px !important;
+    flex:0 0 30px !important;
+  }
+  .day-picker .day strong{
+    font-size:11px !important;
+    line-height:1.05 !important;
+    white-space:normal !important;
+    text-align:center !important;
+  }
+  .day-picker .day-action{
+    font-size:8px !important;
+    line-height:1 !important;
+    letter-spacing:0 !important;
+    white-space:nowrap !important;
+  }
+  .day-picker .day-action b{font-size:10px !important;margin-left:1px !important;}
+  .day-picker .day::before{width:42px !important;height:42px !important;top:-18px !important;right:-16px !important;}
+  .day-picker .day::after{left:7px !important;right:7px !important;bottom:5px !important;height:2px !important;}
+}
+</style>
