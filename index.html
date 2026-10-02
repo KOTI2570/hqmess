@@ -955,8 +955,9 @@ html,body{max-width:100%;overflow-x:hidden}
     gap:8px!important;
   }
   .logo-mark{width:48px!important;height:48px!important}
-  .logo-text{font-size:30px!important;letter-spacing:-1.7px!important}
-  .tagline{font-size:9px!important;margin-top:6px!important;letter-spacing:0!important}
+  .logo > div{display:flex!important;flex-direction:column!important;align-items:flex-start!important;justify-content:center!important;height:54px!important}
+  .logo-text{font-size:30px!important;letter-spacing:-1.7px!important;line-height:.95!important}
+  .tagline{display:block!important;visibility:visible!important;height:auto!important;font-size:9px!important;line-height:1!important;margin:2px 0 0!important;letter-spacing:0!important;white-space:nowrap!important}
   .nav{
     width:100%!important;
     order:0!important;
@@ -993,7 +994,7 @@ html,body{max-width:100%;overflow-x:hidden}
   .header{padding-left:3px!important;padding-right:3px!important}
   .logo-text{font-size:28px!important}
   .logo-mark{width:44px!important;height:44px!important}
-  .tagline{font-size:8px!important}
+  .tagline{display:block!important;visibility:visible!important;font-size:8px!important;line-height:1!important;margin-top:2px!important}
   .nav{gap:1px!important}
   .nav a,.nav a.active,.contact{font-size:9.5px!important;padding-left:1px!important;padding-right:1px!important}
 }
