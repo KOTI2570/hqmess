@@ -779,6 +779,77 @@ html,body{max-width:100%;overflow-x:hidden}
 }
 </style>
 
+
+<style id="hq-party-menu-one-file">
+  #hq-party-menu-root{font-family:Arial,Helvetica,sans-serif;min-height:100vh;background:linear-gradient(180deg,#fff8ec 0%,#ffffff 42%);color:#202020;padding:22px 14px 40px;box-sizing:border-box}
+  #hq-party-menu-root *{box-sizing:border-box}
+  .hq-pm-wrap{width:min(560px,100%);margin:0 auto}
+  .hq-pm-hero{background:linear-gradient(135deg,#fff1cf,#fffaf0);border:1px solid #f2c56b;border-radius:24px;padding:24px 18px;text-align:center;box-shadow:0 8px 25px rgba(0,0,0,.06)}
+  .hq-pm-logo{font-size:15px;font-weight:800;letter-spacing:1.5px;color:#8b4f00;text-transform:uppercase}
+  .hq-pm-title{font-size:32px;line-height:1.1;font-weight:900;margin:8px 0 5px}
+  .hq-pm-sub{font-size:14px;color:#666}
+  .hq-pm-section{background:#fff;border:1px solid #e7e1d7;border-radius:18px;margin-top:13px;padding:17px 16px}
+  .hq-pm-section h2{font-size:19px;margin:0 0 9px;font-weight:800}
+  .hq-pm-item{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px dashed #ddd;font-size:15px}
+  .hq-pm-item:last-child{border-bottom:0;padding-bottom:2px}
+  .hq-pm-icon{width:30px;display:inline-block}
+  .hq-pm-qr{background:#fff;border:1px solid #e5e5e5;border-radius:18px;margin-top:14px;padding:18px;text-align:center}
+  .hq-pm-qr img{width:190px;height:190px;image-rendering:auto;display:block;margin:10px auto}
+  .hq-pm-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:14px}
+  .hq-pm-btn{border:0;border-radius:12px;padding:12px 17px;font-weight:800;font-size:14px;cursor:pointer;background:#222;color:#fff}
+  .hq-pm-btn.secondary{background:#f2f2f2;color:#222;border:1px solid #ddd}
+  .hq-pm-note{text-align:center;color:#777;font-size:12px;margin-top:14px}
+  @media print{#hq-party-menu-root{background:#fff;padding:0}.hq-pm-hero,.hq-pm-section{box-shadow:none}.hq-pm-actions,.hq-pm-note{display:none}.hq-pm-qr{border:0;margin-top:8px}.hq-pm-qr img{width:260px;height:260px}}
+</style>
+<script id="hq-party-menu-one-file-script">
+(function(){
+  var params=new URLSearchParams(window.location.search);
+  if(params.get('party')!=='1') return;
+  var kids=Array.prototype.slice.call(document.body.children);
+  kids.forEach(function(el){ if(el.id!=='hq-party-menu-root') el.style.display='none'; });
+  var root=document.createElement('div');
+  root.id='hq-party-menu-root';
+  root.innerHTML=`
+    <div class="hq-pm-wrap">
+      <div class="hq-pm-hero">
+        <div class="hq-pm-logo">🍽️ HQ MESS</div>
+        <div class="hq-pm-title">Special Party Menu</div>
+        <div class="hq-pm-sub">Welcome • Enjoy • Have a wonderful time</div>
+      </div>
+      <div class="hq-pm-section"><h2>🥗 Starters</h2>
+        <div class="hq-pm-item"><span><span class="hq-pm-icon">🍗</span>Chicken 65</span><strong>Special</strong></div>
+        <div class="hq-pm-item"><span><span class="hq-pm-icon">🧀</span>Paneer Tikka</span><strong>Special</strong></div>
+        <div class="hq-pm-item"><span><span class="hq-pm-icon">🥦</span>Veg Manchurian</span><strong>Fresh</strong></div>
+      </div>
+      <div class="hq-pm-section"><h2>🍛 Main Course</h2>
+        <div class="hq-pm-item"><span><span class="hq-pm-icon">🍗</span>Chicken Biryani</span><strong>Chef's Special</strong></div>
+        <div class="hq-pm-item"><span><span class="hq-pm-icon">🥘</span>Paneer Butter Masala</span><strong></strong></div>
+        <div class="hq-pm-item"><span><span class="hq-pm-icon">🍲</span>Dal Tadka</span><strong></strong></div>
+        <div class="hq-pm-item"><span><span class="hq-pm-icon">🍚</span>Jeera Rice</span><strong></strong></div>
+      </div>
+      <div class="hq-pm-section"><h2>🥗 Sides</h2>
+        <div class="hq-pm-item"><span><span class="hq-pm-icon">🥗</span>Fresh Salad</span><strong></strong></div>
+        <div class="hq-pm-item"><span><span class="hq-pm-icon">🥣</span>Raita</span><strong></strong></div>
+        <div class="hq-pm-item"><span><span class="hq-pm-icon">🌶️</span>Pickle &amp; Papad</span><strong></strong></div>
+      </div>
+      <div class="hq-pm-section"><h2>🍨 Dessert</h2>
+        <div class="hq-pm-item"><span><span class="hq-pm-icon">🍮</span>Gulab Jamun</span><strong></strong></div>
+        <div class="hq-pm-item"><span><span class="hq-pm-icon">🍨</span>Ice Cream</span><strong></strong></div>
+      </div>
+      <div class="hq-pm-qr">
+        <strong>📱 Party Menu QR</strong>
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUoAAAFKAQAAAABTUiuoAAAB/ElEQVR4nO2bXarbMBBGz9SGPMrQBWQp8ta6pO7AWooXULAfLyh8fbDlOGkpScA3KnfmISjiPHwwzGh+EhMPWvr2KAmOOuqoo446eiRqq7VYD8DcYv1crvvDBTj6DBolSRPAbAYho4FGkqRb9BgBjj6DziWE0lkiWbtcm5VTRVodLSaNLcCl5L/PFuDoP6y9+25x+DAIE/Y5Ahx9wVtBwAxK3SRS32Yxw753frtWR9nXETQiTtePch0laXi7VkeX2LqGkNL5w5TOGd1GVgVaHV1jKyqXi5CRpkYQtAaYx1Yl6JYJG0HIpfNSRkPIO8S9VQ8alSGOJ+mHmVk/t8B8WgLM+uMFOPqIlZpw7lA6ZyxOHYLcEqfvwLxV8m/X6mhJc2xFYJCIWp+s8qp5JqwC3ftDyruC/lp++LtVC7p3zzLGnRppCBkNoTRiHluVoLexpVK3l4J+TZHurTrQbU542Z2Uul/L2eLUmY4U4Ogrs4xm8YnFnydZHFuIAzej3bdrdXRBr7tjUnexJf8xt3i/VSO62x0HidRdlgUyABqOF+DoM+i2O4aLLZ1XMrO/occIcPQVNI4t1m+/yxiuW+T6tH459H53vN9B3i2Q367V0YIGaX2eQsZ6gDia7VaS9Wj9uuifu+OtT47LVMPnhPWg5v9acNRRRx119D9CfwNRbEUAZOQTXgAAAABJRU5ErkJggg==" alt="HQ MESS Party Menu QR Code">
+        <div class="hq-pm-sub">Scan this QR to open the party menu</div>
+        <div class="hq-pm-actions">
+          <button class="hq-pm-btn" type="button" onclick="window.print()">Print QR</button>
+          <button class="hq-pm-btn secondary" type="button" onclick="window.location.href=window.location.pathname">Back to Website</button>
+        </div>
+      </div>
+      <div class="hq-pm-note">This is a dedicated party-menu view. The main HQ MESS website remains unchanged.</div>
+    </div>`;
+  document.body.appendChild(root);
+})();
+</script>
 </body>
 
 <style>
