@@ -617,6 +617,12 @@ html,body{max-width:100%;overflow-x:hidden}
 }
 </style>
 
+
+<style id="sunday-brunch-only-fix">
+.menu-grid.sunday-brunch-layout{grid-template-columns:repeat(2,minmax(0,1fr))!important;}
+.menu-grid.sunday-brunch-layout .menu-card.lunch{display:none!important;}
+@media(max-width:700px){.menu-grid.sunday-brunch-layout{grid-template-columns:repeat(2,minmax(0,1fr))!important;}}
+</style>
 </head>
 <body>
 <header class="header">
@@ -730,21 +736,13 @@ html,body{max-width:100%;overflow-x:hidden}
       const breakfast=grid.querySelector('.menu-card.breakfast');
       const lunch=grid.querySelector('.menu-card.lunch');
       if(breakfast){
-        const heading=breakfast.querySelector('h3');
+        const title=breakfast.querySelector('h3');
         const time=breakfast.querySelector('.time');
-        const button=breakfast.querySelector('.small-btn');
-        if(day==='Sunday'){
-          if(heading) heading.textContent='Brunch';
-          if(time) time.textContent='1000 HRS - 1300 HRS';
-          if(button) button.textContent='View Brunch Menu →';
-        }else{
-          if(heading) heading.textContent='Breakfast';
-          if(time) time.textContent='6:30 AM - 08:00 AM';
-          if(button) button.textContent='View Breakfast Menu →';
-        }
+        if(title) title.textContent=day==='Sunday'?'Brunch':'Breakfast';
+        if(time) time.textContent=day==='Sunday'?'1000 HRS - 1300 HRS':'6:30 AM - 08:00 AM';
       }
-      if(lunch) lunch.style.display = day==='Sunday' ? 'none' : '';
-      grid.style.setProperty('grid-template-columns', day==='Sunday' ? 'repeat(2,minmax(0,1fr))' : 'repeat(3,minmax(0,1fr))', 'important');
+      if(lunch) lunch.style.display=day==='Sunday'?'none':'';
+      grid.classList.toggle('sunday-brunch-layout',day==='Sunday');
     }
     buttons.forEach(b=>b.classList.toggle('selected',b.dataset.day===day));
   }
