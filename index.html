@@ -726,6 +726,20 @@ html,body{max-width:100%;overflow-x:hidden}
     document.getElementById('menu-title').textContent=day;
     document.getElementById('menu-banner-icon').textContent=d.icon;
     buttons.forEach(b=>b.classList.toggle('selected',b.dataset.day===day));
+    // Sunday has Brunch and Dinner only; all other days retain all three meal cards.
+    const menuGrid=document.querySelector('#today .menu-grid');
+    if(menuGrid){
+      const brunchCard=menuGrid.querySelector('.menu-card.breakfast');
+      const lunchCard=menuGrid.querySelector('.menu-card.lunch');
+      if(brunchCard){
+        const mealHeading=brunchCard.querySelector('.card-head h3');
+        const mealTime=brunchCard.querySelector('.card-head .time');
+        if(mealHeading) mealHeading.textContent=(day==='Sunday'?'Brunch':'Breakfast');
+        if(mealTime) mealTime.textContent=(day==='Sunday'?'1000 HRS - 1300 HRS':'6:30 AM - 08:00 AM');
+      }
+      if(lunchCard) lunchCard.style.display=(day==='Sunday'?'none':'');
+      menuGrid.classList.toggle('sunday-brunch-layout',day==='Sunday');
+    }
   }
   buttons.forEach(b=>b.addEventListener('click',()=>render(b.dataset.day)));
   render('Monday');
@@ -804,62 +818,11 @@ body.hq-party-only-mode #hq-party-menu-only-page { display:block !important; }
 </script>
 
 
-
-
-<style id="hq-sunday-brunch-final-css">
+<style id="sunday-brunch-only-fix">
 #today .menu-grid.sunday-brunch-layout{grid-template-columns:repeat(2,minmax(0,1fr))!important;}
-#today .menu-grid.sunday-brunch-layout>.menu-card.lunch{display:none!important;}
+#today .menu-grid.sunday-brunch-layout .menu-card.lunch{display:none!important;}
 @media(max-width:700px){#today .menu-grid.sunday-brunch-layout{grid-template-columns:repeat(2,minmax(0,1fr))!important;}}
 </style>
-<script id="hq-sunday-brunch-final-js">
-(function(){
-  function currentDay(){
-    var title=document.getElementById('menu-title');
-    var text=title?(title.textContent||'').trim():'';
-    if(/^(Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday)$/i.test(text)) return text;
-    var selected=document.querySelector('#choose-day .day.selected[data-day]');
-    return selected?selected.getAttribute('data-day'):'Monday';
-  }
-  function apply(){
-    var section=document.getElementById('today');
-    if(!section) return;
-    var grid=section.querySelector('.menu-grid');
-    if(!grid) return;
-    var breakfast=grid.querySelector('.menu-card.breakfast');
-    var lunch=grid.querySelector('.menu-card.lunch');
-    var day=currentDay();
-    if(breakfast){
-      var h=breakfast.querySelector('.card-head h3');
-      var t=breakfast.querySelector('.card-head .time');
-      var name=day==='Sunday'?'Brunch':'Breakfast';
-      var time=day==='Sunday'?'1000 HRS - 1300 HRS':'6:30 AM - 08:00 AM';
-      if(h && h.textContent!==name) h.textContent=name;
-      if(t && t.textContent!==time) t.textContent=time;
-      var img=breakfast.querySelector('.menu-img');
-      if(img && day==='Sunday') img.alt='Brunch';
-      else if(img) img.alt='Breakfast';
-      var btn=breakfast.querySelector('.small-btn');
-      if(btn){var bt=day==='Sunday'?'View Brunch Menu →':'View Breakfast Menu →'; if(btn.textContent!==bt) btn.textContent=bt;}
-    }
-    if(lunch){
-      lunch.style.display=day==='Sunday'?'none':'';
-      lunch.setAttribute('aria-hidden',day==='Sunday'?'true':'false');
-    }
-    grid.classList.toggle('sunday-brunch-layout',day==='Sunday');
-  }
-  function schedule(){[0,40,120,300,700].forEach(function(ms){setTimeout(apply,ms);});}
-  document.addEventListener('click',function(e){
-    var btn=e.target.closest && e.target.closest('#choose-day .day[data-day]');
-    if(btn) schedule();
-  },true);
-  document.addEventListener('DOMContentLoaded',schedule);
-  if(document.readyState!=='loading') schedule();
-  var title=document.getElementById('menu-title');
-  if(title && window.MutationObserver){new MutationObserver(schedule).observe(title,{childList:true,subtree:true,characterData:true});}
-  var grid=document.querySelector('#today .menu-grid');
-  if(grid && window.MutationObserver){new MutationObserver(function(){schedule();}).observe(grid,{childList:true,subtree:true,characterData:true,attributes:true,attributeFilter:['class']});}
-})();
-</script>
 </body>
 
 <style>
