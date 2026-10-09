@@ -619,9 +619,9 @@ html,body{max-width:100%;overflow-x:hidden}
 
 
 <style id="sunday-brunch-only-fix">
-.menu-grid.sunday-brunch-layout{grid-template-columns:repeat(2,minmax(0,1fr))!important;}
-.menu-grid.sunday-brunch-layout .menu-card.lunch{display:none!important;}
-@media(max-width:700px){.menu-grid.sunday-brunch-layout{grid-template-columns:repeat(2,minmax(0,1fr))!important;}}
+#today .menu-grid.sunday-brunch-layout{grid-template-columns:repeat(2,minmax(0,1fr))!important;}
+#today .menu-grid.sunday-brunch-layout .menu-card.lunch{display:none!important;}
+@media(max-width:700px){#today .menu-grid.sunday-brunch-layout{grid-template-columns:repeat(2,minmax(0,1fr))!important;}}
 </style>
 </head>
 <body>
@@ -731,23 +731,26 @@ html,body{max-width:100%;overflow-x:hidden}
     const d=data[day]; if(!d)return;
     document.getElementById('menu-title').textContent=day;
     document.getElementById('menu-banner-icon').textContent=d.icon;
-    const grid=document.querySelector('.menu-grid');
+    // Target only the actual day menu grid; other sections also use grid layouts.
+    const grid=document.querySelector('#today .menu-grid');
     if(grid){
-      const breakfast=grid.querySelector('.menu-card.breakfast');
-      const lunch=grid.querySelector('.menu-card.lunch');
-      if(breakfast){
-        const title=breakfast.querySelector('h3');
-        const time=breakfast.querySelector('.time');
+      const brunchCard=grid.querySelector('.menu-card.breakfast');
+      const lunchCard=grid.querySelector('.menu-card.lunch');
+      if(brunchCard){
+        const title=brunchCard.querySelector('h3');
+        const time=brunchCard.querySelector('.time');
         if(title) title.textContent=day==='Sunday'?'Brunch':'Breakfast';
         if(time) time.textContent=day==='Sunday'?'1000 HRS - 1300 HRS':'6:30 AM - 08:00 AM';
       }
-      if(lunch) lunch.style.display=day==='Sunday'?'none':'';
+      if(lunchCard) lunchCard.style.display=day==='Sunday'?'none':'';
       grid.classList.toggle('sunday-brunch-layout',day==='Sunday');
     }
     buttons.forEach(b=>b.classList.toggle('selected',b.dataset.day===day));
   }
   buttons.forEach(b=>b.addEventListener('click',()=>render(b.dataset.day)));
-  render('Monday');
+  // The script appears before the menu cards in the HTML, so initialize after parsing.
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',()=>render('Monday'));
+  else render('Monday');
 })();
 </script>
 
