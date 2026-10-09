@@ -725,6 +725,27 @@ html,body{max-width:100%;overflow-x:hidden}
     const d=data[day]; if(!d)return;
     document.getElementById('menu-title').textContent=day;
     document.getElementById('menu-banner-icon').textContent=d.icon;
+    const grid=document.querySelector('.menu-grid');
+    if(grid){
+      const breakfast=grid.querySelector('.menu-card.breakfast');
+      const lunch=grid.querySelector('.menu-card.lunch');
+      if(breakfast){
+        const heading=breakfast.querySelector('h3');
+        const time=breakfast.querySelector('.time');
+        const button=breakfast.querySelector('.small-btn');
+        if(day==='Sunday'){
+          if(heading) heading.textContent='Brunch';
+          if(time) time.textContent='1000 HRS - 1300 HRS';
+          if(button) button.textContent='View Brunch Menu →';
+        }else{
+          if(heading) heading.textContent='Breakfast';
+          if(time) time.textContent='6:30 AM - 08:00 AM';
+          if(button) button.textContent='View Breakfast Menu →';
+        }
+      }
+      if(lunch) lunch.style.display = day==='Sunday' ? 'none' : '';
+      grid.style.setProperty('grid-template-columns', day==='Sunday' ? 'repeat(2,minmax(0,1fr))' : 'repeat(3,minmax(0,1fr))', 'important');
+    }
     buttons.forEach(b=>b.classList.toggle('selected',b.dataset.day===day));
   }
   buttons.forEach(b=>b.addEventListener('click',()=>render(b.dataset.day)));
