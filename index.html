@@ -1340,25 +1340,34 @@ body.hq-party-only-mode #hq-party-menu-only-page { display:block !important; }
 </style>
 
 
-<!-- HQ MESS MENU ACTIONS FIX -->
+<!-- HQ MESS PREMIUM MENU DESIGN -->
 <style id="hq-menu-action-modal-style">
-#hq-meal-menu-modal{position:fixed;inset:0;z-index:2147483000;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(0,25,18,.72);box-sizing:border-box}
+#hq-meal-menu-modal{position:fixed;inset:0;z-index:2147483000;display:none;align-items:center;justify-content:center;padding:clamp(8px,2vw,24px);background:rgba(0,24,17,.78);backdrop-filter:blur(5px);box-sizing:border-box}
 #hq-meal-menu-modal.is-open{display:flex}
-#hq-meal-menu-modal .hq-modal-panel{width:min(620px,100%);max-height:min(82vh,760px);overflow:auto;background:#fffdf6;border:2px solid #d8b45e;border-radius:22px;box-shadow:0 24px 70px rgba(0,0,0,.3);padding:22px 24px 24px;box-sizing:border-box}
-#hq-meal-menu-modal .hq-modal-top{display:flex;align-items:center;justify-content:space-between;gap:12px;border-bottom:2px solid #ead7a2;padding-bottom:12px;margin-bottom:14px}
-#hq-meal-menu-modal h2{margin:0;color:#075b3c;font-size:clamp(22px,4vw,30px);font-weight:900}
-#hq-meal-menu-modal .hq-modal-close{border:0;border-radius:50%;width:38px;height:38px;flex:0 0 38px;background:#087c49;color:#fff;font-size:25px;line-height:1;cursor:pointer}
-#hq-meal-menu-modal .hq-modal-day{color:#8b5b0b;font-weight:800;margin:0 0 12px}
-#hq-meal-menu-modal .hq-modal-items{margin:0;padding-left:27px;color:#18372d;font-size:17px;line-height:1.55;font-weight:700}
-#hq-meal-menu-modal .hq-modal-items li{padding:3px 0 3px 4px}
-#hq-meal-menu-modal .hq-modal-empty{color:#5e6e66;font-weight:700}
-@media(max-width:480px){#hq-meal-menu-modal{padding:10px}#hq-meal-menu-modal .hq-modal-panel{padding:17px 16px 20px;border-radius:17px;max-height:86vh}#hq-meal-menu-modal .hq-modal-items{font-size:15px;line-height:1.5}}
+#hq-meal-menu-modal .hq-modal-panel{position:relative;width:min(1080px,100%);max-height:92vh;overflow:auto;background:linear-gradient(145deg,#fffdf0 0%,#fff8d9 100%);border:3px solid #d9ad3e;border-radius:28px;box-shadow:0 28px 90px rgba(0,0,0,.42);padding:0;box-sizing:border-box}
+#hq-meal-menu-modal .hq-modal-top{position:relative;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:24px 30px 22px;background:radial-gradient(circle at 90% 15%,rgba(218,184,74,.2),transparent 28%),linear-gradient(120deg,#003e2b,#087247 58%,#00432e);border-bottom:5px solid #e5bd50;color:#fffdf1;overflow:hidden}
+#hq-meal-menu-modal .hq-modal-top:after{content:"";position:absolute;left:0;right:0;bottom:-17px;height:28px;background:#fff8dd;border-radius:50% 50% 0 0/70% 70% 0 0;pointer-events:none}
+#hq-meal-menu-modal h2{margin:0;color:#fff8df;font-family:Georgia,'Times New Roman',serif;font-size:clamp(27px,4vw,48px);line-height:1.08;font-weight:900;letter-spacing:.2px;text-shadow:0 2px 0 #7c5b15}
+#hq-meal-menu-modal .hq-modal-close{position:relative;z-index:2;border:2px solid #fff3c4;border-radius:50%;width:48px;height:48px;flex:0 0 48px;background:#087b4b;color:#fff;font-size:29px;line-height:1;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.22);transition:transform .18s,background .18s}
+#hq-meal-menu-modal .hq-modal-close:hover{transform:rotate(90deg);background:#b47a0c}
+#hq-meal-menu-modal .hq-modal-day{display:inline-flex;align-items:center;gap:8px;margin:18px 28px 12px;padding:8px 15px;border-radius:999px;background:#f4e4a8;color:#77500b;font-size:clamp(13px,2vw,17px);font-weight:900;letter-spacing:.7px;text-transform:uppercase;border:1px solid #e5c65d}
+#hq-meal-menu-modal .hq-modal-photo{display:block;width:calc(100% - 56px);height:clamp(120px,22vw,230px);object-fit:cover;object-position:center 48%;margin:0 28px 18px;border-radius:18px;border:2px solid #e4c766;box-shadow:0 8px 20px rgba(35,75,47,.16)}
+#hq-meal-menu-modal .hq-modal-items{list-style:none;counter-reset:dish;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:0;padding:0 28px 28px;color:#123d2e;font-size:clamp(14px,1.5vw,18px);line-height:1.35;font-weight:800}
+#hq-meal-menu-modal .hq-modal-items li{counter-increment:dish;position:relative;display:flex;align-items:center;min-height:66px;padding:14px 13px 14px 54px;border:1px solid #e9dca8;border-radius:15px;background:linear-gradient(135deg,#fffef8,#fff5d4);box-shadow:0 5px 13px rgba(27,77,49,.08);overflow-wrap:anywhere;transition:transform .18s,box-shadow .18s}
+#hq-meal-menu-modal .hq-modal-items li:before{content:counter(dish);position:absolute;left:12px;top:50%;transform:translateY(-50%);display:flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:linear-gradient(145deg,#b77b16,#e6bd4f);border:2px solid #fff4bf;color:white;font-weight:900;box-shadow:0 2px 5px #d8c47b}
+#hq-meal-menu-modal .hq-modal-items li:after{content:'✦';position:absolute;right:9px;top:5px;color:#a5bd7a;font-size:12px;opacity:.8}
+#hq-meal-menu-modal .hq-modal-items li:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(27,77,49,.14)}
+#hq-meal-menu-modal .hq-modal-empty{grid-column:1/-1;color:#5e6e66;font-weight:700}
+#hq-meal-menu-modal .hq-modal-footer{display:flex;align-items:center;justify-content:center;gap:10px;padding:13px 20px;background:linear-gradient(120deg,#003d2b,#087247,#003d2b);color:#f8d76b;font-family:Georgia,'Times New Roman',serif;font-weight:900;letter-spacing:2px;text-align:center;border-top:3px solid #d9ad3e}
+#hq-meal-menu-modal .hq-modal-footer small{display:block;color:#fff8df;font:700 10px Arial,sans-serif;letter-spacing:1.6px;margin-top:3px}
+@media(max-width:760px){#hq-meal-menu-modal .hq-modal-panel{max-height:94vh;border-radius:20px;border-width:2px}#hq-meal-menu-modal .hq-modal-top{padding:18px 17px 19px}#hq-meal-menu-modal .hq-modal-close{width:40px;height:40px;flex-basis:40px;font-size:24px}#hq-meal-menu-modal .hq-modal-day{margin:15px 16px 10px}#hq-meal-menu-modal .hq-modal-photo{width:calc(100% - 32px);height:150px;margin:0 16px 14px;border-radius:13px}#hq-meal-menu-modal .hq-modal-items{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;padding:0 16px 18px;font-size:14px}#hq-meal-menu-modal .hq-modal-items li{min-height:62px;padding:12px 9px 12px 43px;border-radius:12px}#hq-meal-menu-modal .hq-modal-items li:before{left:8px;width:26px;height:26px;font-size:13px}}
+@media(max-width:420px){#hq-meal-menu-modal .hq-modal-items{grid-template-columns:1fr}#hq-meal-menu-modal .hq-modal-photo{height:125px}#hq-meal-menu-modal .hq-modal-top{padding:16px 13px}#hq-meal-menu-modal h2{font-size:25px}}
 </style>
 <div id="hq-meal-menu-modal" role="dialog" aria-modal="true" aria-labelledby="hq-meal-menu-title">
   <div class="hq-modal-panel">
     <div class="hq-modal-top"><h2 id="hq-meal-menu-title">Meal Menu</h2><button class="hq-modal-close" type="button" aria-label="Close menu">×</button></div>
     <p class="hq-modal-day" id="hq-meal-menu-day"></p>
-    <ol class="hq-modal-items" id="hq-meal-menu-items"></ol>
+    <ol class="hq-modal-items" id="hq-meal-menu-items"></ol><div class="hq-modal-footer"><div>♧ HQ MESS<small>GOOD FOOD • GOOD HEALTH • HAPPY LIFE</small></div></div>
   </div>
 </div>
 <script id="hq-menu-action-modal-script">
@@ -1369,19 +1378,24 @@ body.hq-party-only-mode #hq-party-menu-only-page { display:block !important; }
   const dayLabel=modal.querySelector('#hq-meal-menu-day');
   const list=modal.querySelector('#hq-meal-menu-items');
   const closeBtn=modal.querySelector('.hq-modal-close');
+  const panel=modal.querySelector('.hq-modal-panel');
+  let photo=modal.querySelector('.hq-modal-photo');
+  if(!photo){photo=document.createElement('img');photo.className='hq-modal-photo';photo.alt='HQ MESS meal';dayLabel.insertAdjacentElement('afterend',photo);}
   function closeModal(){modal.classList.remove('is-open');modal.setAttribute('aria-hidden','true');document.body.style.overflow='';}
   function openMeal(card){
     const day=(document.getElementById('menu-title')?.textContent||'').trim();
     const meal=(card.querySelector('.card-head h3')?.textContent||'Menu').trim();
-    const time=(card.querySelector('.card-head .time')?.textContent||'').trim();
     const spans=Array.from(card.querySelectorAll('p.weekly-menu-items span'));
     const items=spans.map(s=>s.textContent.trim()).filter(Boolean);
+    const sourceImage=card.querySelector('img.menu-img');
+    if(sourceImage && sourceImage.getAttribute('src')){photo.src=sourceImage.getAttribute('src');photo.style.display='block';}
+    else {photo.removeAttribute('src');photo.style.display='none';}
     title.textContent=meal+' Menu';
-    dayLabel.textContent=day+(time?' · '+time:'');
+    dayLabel.textContent=day+'  ·  '+meal;
     list.replaceChildren();
     items.forEach(item=>{const li=document.createElement('li');li.textContent=item;list.appendChild(li);});
     if(!items.length){const li=document.createElement('li');li.className='hq-modal-empty';li.textContent='Menu details are not available for this meal.';list.appendChild(li);}
-    modal.classList.add('is-open');modal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';closeBtn.focus();
+    modal.classList.add('is-open');modal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';panel.scrollTop=0;closeBtn.focus();
   }
   document.addEventListener('click',function(e){
     const menuButton=e.target.closest('#today .menu-card .small-btn');
@@ -1395,5 +1409,4 @@ body.hq-party-only-mode #hq-party-menu-only-page { display:block !important; }
   modal.setAttribute('aria-hidden','true');
 })();
 </script>
-
 
