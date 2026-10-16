@@ -1365,9 +1365,25 @@ body.hq-party-only-mode #hq-party-menu-only-page { display:block !important; }
 @media(max-width:760px){#hq-meal-menu-modal .hq-modal-panel{max-height:94vh;border-radius:20px;border-width:2px}#hq-meal-menu-modal .hq-modal-top{padding:17px 16px 18px}#hq-meal-menu-modal .hq-modal-close{width:40px;height:40px;flex-basis:40px;font-size:24px}#hq-meal-menu-modal .hq-modal-day{margin:16px 16px 12px;padding:8px 13px}#hq-meal-menu-modal .hq-modal-items{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:0 16px 18px}#hq-meal-menu-modal .hq-dish-photo-wrap{height:clamp(105px,25vw,150px)}#hq-meal-menu-modal .hq-dish-name{min-height:54px;padding:10px 8px;font-size:14px}}
 @media(max-width:420px){#hq-meal-menu-modal{padding:7px}#hq-meal-menu-modal .hq-modal-panel{max-height:95vh;border-radius:16px}#hq-meal-menu-modal .hq-modal-top{padding:15px 12px 16px}#hq-meal-menu-modal h2{font-size:25px}#hq-meal-menu-modal .hq-modal-items{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding:0 10px 14px}#hq-meal-menu-modal .hq-dish-photo-wrap{height:112px}#hq-meal-menu-modal .hq-dish-number{left:7px;top:7px;width:31px;height:31px;font-size:15px}#hq-meal-menu-modal .hq-dish-name{font-size:12px;min-height:50px;padding:8px 6px}#hq-meal-menu-modal .hq-modal-day{margin:13px 10px 10px;font-size:12px}}
 </style>
-<div id="hq-meal-menu-modal" role="dialog" aria-modal="true" aria-labelledby="hq-meal-menu-title" aria-hidden="true">
+<style id="hq-mess-premium-header-fix">
+#hq-meal-menu-modal .hq-modal-panel{width:min(1420px,96vw);max-height:94vh;overflow-y:auto;overflow-x:hidden;border-radius:28px}
+#hq-meal-menu-modal .hq-modal-top{display:grid;grid-template-columns:minmax(145px,205px) minmax(0,1fr) 52px;align-items:center;gap:16px;min-height:155px;padding:20px 26px 25px;background:radial-gradient(circle at 50% 0,rgba(255,218,92,.16),transparent 36%),linear-gradient(115deg,#003d2b,#087247 58%,#00432e)}
+#hq-meal-menu-modal .hq-brand{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:#ffe18a;text-align:center;z-index:1}
+#hq-meal-menu-modal .hq-brand-mark{font-size:46px;line-height:1;color:#ffdc71;text-shadow:0 2px 0 #8b6516}
+#hq-meal-menu-modal .hq-brand strong{font:900 clamp(20px,2.2vw,29px) Georgia,'Times New Roman',serif;letter-spacing:1px;color:#fff8df}
+#hq-meal-menu-modal .hq-brand small{font:700 9px Arial,sans-serif;letter-spacing:1px;color:#f7d66a}
+#hq-meal-menu-modal .hq-modal-heading{min-width:0;text-align:center;z-index:1}
+#hq-meal-menu-modal .hq-modal-heading h2{font-size:clamp(30px,4.2vw,58px);overflow-wrap:anywhere}
+#hq-meal-menu-modal .hq-modal-subtitle{display:inline-block;margin-top:9px;padding:7px 22px;border-radius:999px;background:linear-gradient(135deg,#fffdf0,#fff0b7);border:2px solid #e7c04e;color:#064b35;font:900 clamp(11px,1.4vw,17px) Arial,sans-serif;letter-spacing:1.3px}
+#hq-meal-menu-modal .hq-modal-close{width:48px;height:48px;flex-basis:48px;align-self:start}
+#hq-meal-menu-modal .hq-modal-items{grid-template-columns:repeat(4,minmax(0,1fr));padding-top:4px}
+#hq-meal-menu-modal .hq-dish-photo{transform:none;object-fit:cover}
+#hq-meal-menu-modal .hq-modal-panel{scrollbar-width:thin;scrollbar-color:#c8a33e #fff7dc}
+@media(max-width:760px){#hq-meal-menu-modal .hq-modal-panel{width:100%;max-height:95vh;border-radius:18px}#hq-meal-menu-modal .hq-modal-top{grid-template-columns:1fr 42px;min-height:125px;padding:14px 13px 22px;gap:8px}#hq-meal-menu-modal .hq-brand{display:none}#hq-meal-menu-modal .hq-modal-heading{grid-column:1;grid-row:1;text-align:left}#hq-meal-menu-modal .hq-modal-heading h2{font-size:clamp(25px,6vw,36px)}#hq-meal-menu-modal .hq-modal-subtitle{font-size:10px;padding:6px 10px;letter-spacing:.7px;margin-top:7px}#hq-meal-menu-modal .hq-modal-close{grid-column:2;grid-row:1;width:40px;height:40px;flex-basis:40px;font-size:23px}#hq-meal-menu-modal .hq-modal-items{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:0 12px 16px}#hq-meal-menu-modal .hq-dish-photo-wrap{height:clamp(105px,28vw,160px)}#hq-meal-menu-modal .hq-dish-name{font-size:13px;min-height:54px;padding:9px 7px}}
+@media(max-width:420px){#hq-meal-menu-modal{padding:6px}#hq-meal-menu-modal .hq-modal-top{min-height:112px;padding:12px 10px 20px}#hq-meal-menu-modal .hq-modal-heading h2{font-size:24px}#hq-meal-menu-modal .hq-modal-subtitle{font-size:9px;letter-spacing:.3px}#hq-meal-menu-modal .hq-modal-items{gap:8px;padding:0 9px 13px}#hq-meal-menu-modal .hq-dish-photo-wrap{height:105px}#hq-meal-menu-modal .hq-dish-number{width:31px;height:31px;font-size:15px;left:7px;top:7px}#hq-meal-menu-modal .hq-dish-name{font-size:12px;min-height:48px}}
+</style> <div id="hq-meal-menu-modal" role="dialog" aria-modal="true" aria-labelledby="hq-meal-menu-title" aria-hidden="true">
   <div class="hq-modal-panel">
-    <div class="hq-modal-top"><h2 id="hq-meal-menu-title">Meal Menu</h2><button class="hq-modal-close" type="button" aria-label="Close menu">×</button></div>
+    <div class="hq-modal-top"><div class="hq-brand" aria-label="HQ MESS"><span class="hq-brand-mark">♙</span><strong>HQ MESS</strong><small>GOOD FOOD • GOOD PEOPLE</small></div><div class="hq-modal-heading"><h2 id="hq-meal-menu-title">Meal Menu</h2><div class="hq-modal-subtitle" id="hq-meal-menu-subtitle">FRESH • DELICIOUS • NUTRITIOUS</div></div><button class="hq-modal-close" type="button" aria-label="Close menu">×</button></div>
     <p class="hq-modal-day" id="hq-meal-menu-day"></p>
     <ol class="hq-modal-items" id="hq-meal-menu-items"></ol>
     <div class="hq-modal-footer"><div>♧ HQ MESS<small>GOOD FOOD • GOOD HEALTH • HAPPY LIFE</small></div></div>
@@ -1389,18 +1405,24 @@ body.hq-party-only-mode #hq-party-menu-only-page { display:block !important; }
     const spans=Array.from(card.querySelectorAll('p.weekly-menu-items span'));
     const items=spans.map(s=>s.textContent.trim()).filter(Boolean);
     const sourceImage=card.querySelector('img.menu-img');
-    const imageSrc=sourceImage ? (sourceImage.currentSrc||sourceImage.getAttribute('src')||'') : '';
+    const fallbackImage=sourceImage ? (sourceImage.currentSrc||sourceImage.getAttribute('src')||'') : '';
+    /* Use the site's existing distinct meal photos in rotation instead of repeating one identical image for every dish. */
+    const dishImagePool=Array.from(document.querySelectorAll('#today .menu-card img.menu-img'))
+      .map(img=>img.currentSrc||img.getAttribute('src')||'').filter(Boolean);
+    const mealOffset=meal.toLowerCase().includes('lunch')?1:(meal.toLowerCase().includes('dinner')?2:0);
     title.textContent=meal+' Menu';
+    const subtitle=modal.querySelector('#hq-meal-menu-subtitle');
+    if(subtitle) subtitle.textContent='FRESH • DELICIOUS • NUTRITIOUS';
     /* Deliberately show day + meal only; no meal time in the popup. */
     dayLabel.textContent=day+' · '+meal;
     list.replaceChildren();
     items.forEach((item,index)=>{
       const li=document.createElement('li');
-      if(imageSrc){
+      {
         const wrap=document.createElement('div');wrap.className='hq-dish-photo-wrap';
-        const img=document.createElement('img');img.className='hq-dish-photo';img.src=imageSrc;img.alt=item;img.loading='lazy';
-        /* Use different crops of the existing meal photo so every dish tile has a photo without adding heavy duplicate assets. */
-        const positions=['18% 48%','50% 48%','82% 48%','35% 25%','65% 70%','50% 85%'];
+        const img=document.createElement('img');img.className='hq-dish-photo';
+        img.src=(dishImagePool.length?dishImagePool[(index+mealOffset)%dishImagePool.length]:fallbackImage);img.alt=item;img.loading='lazy';
+        const positions=['50% 50%','35% 50%','65% 50%','50% 35%','50% 65%','25% 50%'];
         img.style.objectPosition=positions[index%positions.length];
         wrap.appendChild(img);
         const number=document.createElement('span');number.className='hq-dish-number';number.textContent=String(index+1);wrap.appendChild(number);
