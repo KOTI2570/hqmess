@@ -621,6 +621,9 @@ html,body{max-width:100%;overflow-x:hidden}
 /* Display the supplied weekly menu inside the existing meal cards; preserve the existing design. */
 #today .menu-card p.weekly-menu-items{display:flex;flex-direction:column;gap:4px;text-align:left;line-height:1.35;white-space:normal;overflow-wrap:anywhere;padding:12px 16px;margin:0;color:#34564b;font-size:13px;font-weight:600;min-height:0;}
 #today .menu-card p.weekly-menu-items span{display:block;}
+/* Preview only: show two menu items and an ellipsis; keep every span in the DOM for View Full Menu. */
+#today .menu-card p.weekly-menu-items span:nth-child(n+3){display:none;}
+#today .menu-card p.weekly-menu-items span:nth-child(2)::after{content:' …';color:#07834d;font-weight:900;letter-spacing:2px;}
 #today .menu-card p.weekly-menu-items span::before{content:'• ';color:#07834d;font-weight:900;}
 #today .menu-card .small-btn{margin-top:8px!important;}
 @media(max-width:650px){#today .menu-card p.weekly-menu-items{font-size:10px;line-height:1.3;gap:3px;padding:8px 7px;} #today .menu-section .menu-card .small-btn{white-space:normal!important;}}
@@ -1353,14 +1356,6 @@ body.hq-party-only-mode #hq-party-menu-only-page { display:block !important; }
 #hq-meal-menu-modal .hq-modal-items li{padding:3px 0 3px 4px}
 #hq-meal-menu-modal .hq-modal-empty{color:#5e6e66;font-weight:700}
 @media(max-width:480px){#hq-meal-menu-modal{padding:10px}#hq-meal-menu-modal .hq-modal-panel{padding:17px 16px 20px;border-radius:17px;max-height:86vh}#hq-meal-menu-modal .hq-modal-items{font-size:15px;line-height:1.5}}
-/* Compact menu popup spacing fix */
-#hq-meal-menu-modal .hq-modal-panel{width:min(760px,100%);height:auto;max-height:82vh;padding:18px 22px 18px;}
-#hq-meal-menu-modal .hq-modal-top{padding-bottom:9px;margin-bottom:10px;}
-#hq-meal-menu-modal h2{font-size:clamp(22px,3.2vw,28px);line-height:1.15;}
-#hq-meal-menu-modal .hq-modal-day{margin:0 0 7px;line-height:1.25;}
-#hq-meal-menu-modal .hq-modal-items{font-size:16px;line-height:1.32;}
-#hq-meal-menu-modal .hq-modal-items li{padding:1px 0 1px 3px;}
-@media(max-width:480px){#hq-meal-menu-modal .hq-modal-panel{padding:14px 14px 15px;max-height:86vh;}#hq-meal-menu-modal .hq-modal-items{font-size:14px;line-height:1.3;}}
 </style>
 <div id="hq-meal-menu-modal" role="dialog" aria-modal="true" aria-labelledby="hq-meal-menu-title">
   <div class="hq-modal-panel">
