@@ -621,8 +621,6 @@ html,body{max-width:100%;overflow-x:hidden}
 /* Display the supplied weekly menu inside the existing meal cards; preserve the existing design. */
 #today .menu-card p.weekly-menu-items{display:flex;flex-direction:column;gap:4px;text-align:left;line-height:1.35;white-space:normal;overflow-wrap:anywhere;padding:12px 16px;margin:0;color:#34564b;font-size:13px;font-weight:600;min-height:0;}
 #today .menu-card p.weekly-menu-items span{display:block;}
-/* Keep meal cards compact: show only the first two items; the full list remains in the menu modal. */
-#today .menu-card p.weekly-menu-items span:nth-child(n+3){display:none;}
 #today .menu-card p.weekly-menu-items span::before{content:'• ';color:#07834d;font-weight:900;}
 #today .menu-card .small-btn{margin-top:8px!important;}
 @media(max-width:650px){#today .menu-card p.weekly-menu-items{font-size:10px;line-height:1.3;gap:3px;padding:8px 7px;} #today .menu-section .menu-card .small-btn{white-space:normal!important;}}
@@ -825,7 +823,7 @@ html,body{max-width:100%;overflow-x:hidden}
         p.innerHTML=items.map(item=>'<span>'+item.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</span>').join('');
       }
       const btn=card.querySelector('.small-btn');
-      if(btn) btn.textContent='View Full '+((day==='Sunday'&&def.key==='breakfast')?'Brunch':def.normalTitle)+' Menu →';
+      if(btn) btn.textContent='View '+((day==='Sunday'&&def.key==='breakfast')?'Brunch':def.normalTitle)+' Menu →';
     });
     menuGrid.classList.toggle('sunday-brunch-layout',day==='Sunday');
   }
@@ -1344,17 +1342,23 @@ body.hq-party-only-mode #hq-party-menu-only-page { display:block !important; }
 
 <!-- HQ MESS MENU ACTIONS FIX -->
 <style id="hq-menu-action-modal-style">
-#hq-meal-menu-modal{position:fixed;inset:0;z-index:2147483000;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(0,25,18,.72);box-sizing:border-box}
-#hq-meal-menu-modal.is-open{display:flex}
-#hq-meal-menu-modal .hq-modal-panel{width:min(620px,100%);max-height:min(82vh,760px);overflow:auto;background:#fffdf6;border:2px solid #d8b45e;border-radius:22px;box-shadow:0 24px 70px rgba(0,0,0,.3);padding:22px 24px 24px;box-sizing:border-box}
-#hq-meal-menu-modal .hq-modal-top{display:flex;align-items:center;justify-content:space-between;gap:12px;border-bottom:2px solid #ead7a2;padding-bottom:12px;margin-bottom:14px}
-#hq-meal-menu-modal h2{margin:0;color:#075b3c;font-size:clamp(22px,4vw,30px);font-weight:900}
-#hq-meal-menu-modal .hq-modal-close{border:0;border-radius:50%;width:38px;height:38px;flex:0 0 38px;background:#087c49;color:#fff;font-size:25px;line-height:1;cursor:pointer}
-#hq-meal-menu-modal .hq-modal-day{color:#8b5b0b;font-weight:800;margin:0 0 12px}
-#hq-meal-menu-modal .hq-modal-items{margin:0;padding-left:27px;color:#18372d;font-size:17px;line-height:1.55;font-weight:700}
-#hq-meal-menu-modal .hq-modal-items li{padding:3px 0 3px 4px}
+#hq-meal-menu-modal{position:fixed;inset:0;z-index:2147483000;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(0,35,25,.76);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);box-sizing:border-box}
+#hq-meal-menu-modal.is-open{display:flex;animation:hqModalFade .22s ease-out}
+#hq-meal-menu-modal .hq-modal-panel{position:relative;width:min(680px,100%);max-height:min(84vh,780px);overflow:auto;background:linear-gradient(145deg,#fffef9 0%,#f5fff8 100%);border:1px solid rgba(216,180,94,.9);border-radius:28px;box-shadow:0 28px 90px rgba(0,0,0,.34),inset 0 1px 0 #fff;padding:28px 30px 30px;box-sizing:border-box}
+#hq-meal-menu-modal .hq-modal-panel:before{content:"";position:absolute;left:0;top:0;right:0;height:7px;background:linear-gradient(90deg,#087c49,#74cc62,#ffd21c);border-radius:28px 28px 0 0}
+#hq-meal-menu-modal .hq-modal-top{display:flex;align-items:center;justify-content:space-between;gap:14px;border-bottom:1px solid #e7d7a8;padding:4px 0 18px;margin-bottom:18px}
+#hq-meal-menu-modal h2{margin:0;color:#075b3c;font-size:clamp(26px,4vw,36px);font-weight:900;letter-spacing:-.6px;line-height:1.15}
+#hq-meal-menu-modal .hq-modal-close{display:grid;place-items:center;border:3px solid #e0f2e7;border-radius:50%;width:48px;height:48px;flex:0 0 48px;background:linear-gradient(145deg,#0a8c52,#006c40);color:#fff;font-size:27px;line-height:1;cursor:pointer;box-shadow:0 6px 16px rgba(0,124,73,.2);transition:transform .18s ease,box-shadow .18s ease}
+#hq-meal-menu-modal .hq-modal-close:hover{transform:rotate(90deg) scale(1.04);box-shadow:0 9px 22px rgba(0,124,73,.28)}
+#hq-meal-menu-modal .hq-modal-day{display:inline-flex;align-items:center;gap:8px;color:#80530a;background:#fff4d6;border:1px solid #f1dfaa;border-radius:999px;padding:9px 15px;margin:0 0 17px;font-size:15px;font-weight:900;letter-spacing:.15px}
+#hq-meal-menu-modal .hq-modal-items{list-style:none;counter-reset:mealitem;margin:0;padding:0;color:#18372d;font-size:17px;line-height:1.45;font-weight:700;display:grid;gap:9px}
+#hq-meal-menu-modal .hq-modal-items li{counter-increment:mealitem;position:relative;display:flex;align-items:center;min-height:48px;padding:10px 14px 10px 58px;background:rgba(255,255,255,.88);border:1px solid #e0eee5;border-radius:14px;box-shadow:0 3px 10px rgba(0,63,50,.045);transition:transform .16s ease,border-color .16s ease,box-shadow .16s ease}
+#hq-meal-menu-modal .hq-modal-items li:before{content:counter(mealitem,decimal-leading-zero);position:absolute;left:13px;top:50%;transform:translateY(-50%);display:grid;place-items:center;width:32px;height:32px;border-radius:11px;background:linear-gradient(145deg,#e1f7e6,#f4ffe9);color:#087c49;font-size:12px;font-weight:900}
+#hq-meal-menu-modal .hq-modal-items li:hover{transform:translateX(3px);border-color:#b6dfc4;box-shadow:0 6px 16px rgba(0,63,50,.08)}
 #hq-meal-menu-modal .hq-modal-empty{color:#5e6e66;font-weight:700}
-@media(max-width:480px){#hq-meal-menu-modal{padding:10px}#hq-meal-menu-modal .hq-modal-panel{padding:17px 16px 20px;border-radius:17px;max-height:86vh}#hq-meal-menu-modal .hq-modal-items{font-size:15px;line-height:1.5}}
+#hq-meal-menu-modal .hq-modal-empty:before{content:"!";background:#edf2ee;color:#5e6e66}
+@keyframes hqModalFade{from{opacity:0}to{opacity:1}}
+@media(max-width:480px){#hq-meal-menu-modal{padding:10px}#hq-meal-menu-modal .hq-modal-panel{padding:23px 16px 19px;border-radius:21px;max-height:88vh}#hq-meal-menu-modal .hq-modal-top{padding-bottom:14px;margin-bottom:14px}#hq-meal-menu-modal h2{font-size:25px}#hq-meal-menu-modal .hq-modal-close{width:42px;height:42px;flex-basis:42px;font-size:24px}#hq-meal-menu-modal .hq-modal-day{font-size:13px;padding:8px 12px}#hq-meal-menu-modal .hq-modal-items{font-size:15px;line-height:1.4;gap:7px}#hq-meal-menu-modal .hq-modal-items li{min-height:44px;padding:9px 10px 9px 51px;border-radius:12px}#hq-meal-menu-modal .hq-modal-items li:before{left:10px;width:29px;height:29px;border-radius:9px}}
 </style>
 <div id="hq-meal-menu-modal" role="dialog" aria-modal="true" aria-labelledby="hq-meal-menu-title">
   <div class="hq-modal-panel">
