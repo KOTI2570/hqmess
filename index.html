@@ -617,6 +617,14 @@ html,body{max-width:100%;overflow-x:hidden}
 }
 </style>
 
+<style id="weekly-menu-items-only">
+/* Display the supplied weekly menu inside the existing meal cards; preserve the existing design. */
+#today .menu-card p.weekly-menu-items{display:flex;flex-direction:column;gap:4px;text-align:left;line-height:1.35;white-space:normal;overflow-wrap:anywhere;padding:12px 16px;margin:0;color:#34564b;font-size:13px;font-weight:600;min-height:0;}
+#today .menu-card p.weekly-menu-items span{display:block;}
+#today .menu-card p.weekly-menu-items span::before{content:'• ';color:#07834d;font-weight:900;}
+#today .menu-card .small-btn{margin-top:8px!important;}
+@media(max-width:650px){#today .menu-card p.weekly-menu-items{font-size:10px;line-height:1.3;gap:3px;padding:8px 7px;} #today .menu-section .menu-card .small-btn{white-space:normal!important;}}
+</style>
 </head>
 <body>
 <header class="header">
@@ -708,41 +716,119 @@ html,body{max-width:100%;overflow-x:hidden}
 
 
 <script>
-// CHOOSE YOUR DAY — only this section is interactive
+// CHOOSE YOUR DAY — weekly menu data from the supplied HQ MESS weekly menu photo
 (function(){
   const data={
-    Sunday:{icon:'☀️',breakfast:['Idly','Dosa','Vada','Upma'],lunch:['Rice','Dal','Vegetable Curry','Curd'],dinner:['Roti','Curry','Rice','Salad']},
-    Monday:{icon:'🌿',breakfast:['Poha','Idly','Sambar','Fruit'],lunch:['Rice','Dal','Mixed Veg','Curd'],dinner:['Chapati','Paneer Curry','Rice','Dal']},
-    Tuesday:{icon:'🍽️',breakfast:['Pongal','Vada','Chutney','Tea'],lunch:['Rice','Sambar','Beans Curry','Curd'],dinner:['Roti','Dal','Vegetable Curry','Rice']},
-    Wednesday:{icon:'📅',breakfast:['Upma','Dosa','Chutney','Milk'],lunch:['Rice','Dal','Cabbage Curry','Buttermilk'],dinner:['Chapati','Chicken Curry','Rice','Salad']},
-    Thursday:{icon:'🍛',breakfast:['Idly','Vada','Sambar','Tea'],lunch:['Rice','Dal','Aloo Curry','Curd'],dinner:['Roti','Mixed Curry','Rice','Dal']},
-    Friday:{icon:'⭐',breakfast:['Poori','Chole','Fruit','Tea'],lunch:['Rice','Dal','Special Curry','Sweet'],dinner:['Chapati','Paneer Curry','Rice','Salad']},
-    Saturday:{icon:'🥗',breakfast:['Dosa','Vada','Sambar','Coffee'],lunch:['Rice','Dal','Vegetable Curry','Curd'],dinner:['Roti','Special Curry','Rice','Sweet']}
+    Sunday:{icon:'☀️',breakfast:[
+      'Idli, Vada, Uttapam','Dosa (Plain / Masala / Cheese / Paneer)',
+      'Sambar, Coconut Chutney, Imli Chutney','Milk with Honey, Nutramol, Cornflakes, Muesli',
+      'Porridge','Tea / Coffee','Banana Shake',
+      'Alternate week: Assorted Stuffed Paratha (Aloo / Gobi / Onion / Cheese / Mooli / Paneer)',
+      'Curd, Imli South Chutney, Pickle','Banana Shake / Any Other Fruit Shake'
+    ],lunch:[],dinner:[
+      'Peas Rice','Dal Arhar','Malai Kofta','Chapati','Salad','Shahi Tukda'
+    ]},
+    Monday:{icon:'🌿',breakfast:[
+      'Bread / Butter / Jam','Chana Puri','Egg Bhurji','Sprouts',
+      'Milk with Honey, Nutramol, Cornflakes, Muesli','Porridge','Tea / Coffee'
+    ],lunch:[
+      'Coriander Chicken','Shahi Paneer / Kachai Paneer','Seasonal Veg','Dal','Onion Rice',
+      'Chapati','Curd','Salad, Pickle','Seasonal Fruit'
+    ],dinner:[
+      'Paneer Do Pyaza','Dal Fry','Rice','Seasonal Veg','Salad','Pickle','Roomali Roti',
+      'Gulab Jamun (not to be purchased)'
+    ]},
+    Tuesday:{icon:'🍽️',breakfast:[
+      'Poha Sambar with Chutney','Eggs to Order','Sprouts',
+      'Milk with Honey, Nutramol, Cornflakes, Muesli','Porridge','Tea / Coffee / Cold Coffee'
+    ],lunch:[
+      'Palak Rice','Kabuli Chhole Masala','Palak Stuffed Bharwan Kachcha (alternate week)',
+      'Chapati (on demand)','Boondi Raita / Dahi Bhalla','Salad','Papad, Pickle','Seasonal Fruit'
+    ],dinner:[
+      'Masala Rice','Dal Tadka','Paneer Peshawari / Paneer Makhani (alternate week)',
+      'Seasonal Veg','Chapati','Salad','Pickle','Rasmalai'
+    ]},
+    Wednesday:{icon:'📅',breakfast:[
+      'Aloo / Paneer / Plain Paratha','Paneer Bhurji / Egg Bhurji','Pickle','Sprouts','Dahi',
+      'Milk with Honey, Nutramol, Cornflakes, Muesli','Porridge','Tea / Coffee'
+    ],lunch:[
+      'Chicken Biryani / Veg Biryani / Egg Biryani','Salan','Veg Raita','Salad',
+      'Pickle, Papad','Seasonal Fruit'
+    ],dinner:[
+      'Matter Pulao / Plain Rice','Dal Fry','Seasonal Veg','Egg Curry','Paneer Bhurji',
+      'Chapati','Salad','Pickle','Fruit Custard'
+    ]},
+    Thursday:{icon:'🍛',breakfast:[
+      'Upma, Idli, Sambar with Chutney','Sprouts',
+      'Milk with Honey, Nutramol, Cornflakes, Muesli','Porridge','Tea / Coffee'
+    ],lunch:[
+      'Rice','Chicken Curry','Matar Paneer','Dal Rajma','Seasonal Veg','Curd',
+      'Lacha Paratha / Chapati (on demand)','Salad, Pickle','Seasonal Fruit'
+    ],dinner:[
+      'Onion Rice','Paneer Lababdar','Dal Mix','Seasonal Veg','Plain Paratha','Salad','Suji Halwa'
+    ]},
+    Friday:{icon:'⭐',breakfast:[
+      'Veg Sandwich Roasted','Cheese Sandwich','Veg Cutlet','Eggs (boiled / omelet as per requirement)',
+      'Sprouts','Milk with Honey, Nutramol, Cornflakes, Muesli','Porridge','Tea / Coffee'
+    ],lunch:[
+      'Lemon Rice / Veg Pulao','Kadhi Pakoda','Dal Arhar','Seasonal Veg','Chapati',
+      'Salad','Pickle','Papad','Seasonal Fruit'
+    ],dinner:[
+      'Grilled Chicken in Brown Sauce / Sautéed Egg','Cottage Cheese / Grilled Paneer',
+      'Veg Cutlet (for all)','Baked Beans','Hot Pot Macaroni (alternate week) / White Sauce Pasta (veg)',
+      'Normal Salad (mix)','Garlic Bread','Tipsy Pudding / Chocolate Brownie (ice cream on demand)'
+    ]},
+    Saturday:{icon:'🥗',breakfast:[
+      'Plain Paratha with Aloo Subji','Eggs to Order','Sprouts',
+      'Milk with Honey, Nutramol, Cornflakes, Muesli','Porridge','Tea / Coffee'
+    ],lunch:[
+      'Chicken Patiala','Palak Paneer / Methi Paneer','Seasonal Veg','Dal Makhani / Dal Bukhara',
+      'Peas Rice','Curd, Salad','Tandoori Roti / Naan / Missi Roti','Fruit Salad'
+    ],dinner:[
+      'Paneer Jalfrezi / Tomato Paneer (alternate week)','Seasonal Veg','Dal Handi',
+      'Jeera Rice','Salad','Chapati','Kesar Phirni'
+    ]}
   };
-  const icons=['🍚','🥣','🥗','🍲'];
   const buttons=document.querySelectorAll('.day[data-day]');
+  const mealDefs=[
+    {key:'breakfast',selector:'.menu-card.breakfast',normalTitle:'Breakfast',sundayTitle:'Brunch'},
+    {key:'lunch',selector:'.menu-card.lunch',normalTitle:'Lunch'},
+    {key:'dinner',selector:'.menu-card.dinner',normalTitle:'Dinner'}
+  ];
   function render(day){
     const d=data[day]; if(!d)return;
-    document.getElementById('menu-title').textContent=day;
-    document.getElementById('menu-banner-icon').textContent=d.icon;
+    const title=document.getElementById('menu-title');
+    const bannerIcon=document.getElementById('menu-banner-icon');
+    if(title) title.textContent=day;
+    if(bannerIcon) bannerIcon.textContent=d.icon;
     buttons.forEach(b=>b.classList.toggle('selected',b.dataset.day===day));
-    // Sunday has Brunch and Dinner only; all other days retain all three meal cards.
     const menuGrid=document.querySelector('#today .menu-grid');
-    if(menuGrid){
-      const brunchCard=menuGrid.querySelector('.menu-card.breakfast');
-      const lunchCard=menuGrid.querySelector('.menu-card.lunch');
-      if(brunchCard){
-        const mealHeading=brunchCard.querySelector('.card-head h3');
-        const mealTime=brunchCard.querySelector('.card-head .time');
-        if(mealHeading) mealHeading.textContent=(day==='Sunday'?'Brunch':'Breakfast');
-        if(mealTime) mealTime.textContent=(day==='Sunday'?'1000 HRS - 1300 HRS':'6:30 AM - 08:00 AM');
+    if(!menuGrid)return;
+    mealDefs.forEach(def=>{
+      const card=menuGrid.querySelector(def.selector); if(!card)return;
+      const items=d[def.key]||[];
+      card.style.display=items.length?'':'none';
+      const heading=card.querySelector('.card-head h3');
+      const time=card.querySelector('.card-head .time');
+      const p=card.querySelector('p');
+      if(heading) heading.textContent=(day==='Sunday'&&def.key==='breakfast')?'Brunch':def.normalTitle;
+      if(time){
+        if(day==='Sunday'&&def.key==='breakfast') time.textContent='1000 HRS - 1300 HRS';
+        else if(def.key==='breakfast') time.textContent='Breakfast';
+        else if(def.key==='lunch') time.textContent='Lunch';
+        else time.textContent='Dinner';
       }
-      if(lunchCard) lunchCard.style.display=(day==='Sunday'?'none':'');
-      menuGrid.classList.toggle('sunday-brunch-layout',day==='Sunday');
-    }
+      if(p){
+        p.classList.add('weekly-menu-items');
+        p.innerHTML=items.map(item=>'<span>'+item.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</span>').join('');
+      }
+      const btn=card.querySelector('.small-btn');
+      if(btn) btn.textContent='View '+((day==='Sunday'&&def.key==='breakfast')?'Brunch':def.normalTitle)+' Menu →';
+    });
+    menuGrid.classList.toggle('sunday-brunch-layout',day==='Sunday');
   }
   buttons.forEach(b=>b.addEventListener('click',()=>render(b.dataset.day)));
-  render('Monday');
+  render('Sunday');
 })();
 </script>
 
@@ -1252,3 +1338,62 @@ body.hq-party-only-mode #hq-party-menu-only-page { display:block !important; }
   .day-menu-banner{height:64px !important;min-height:64px !important;}
 }
 </style>
+
+
+<!-- HQ MESS MENU ACTIONS FIX -->
+<style id="hq-menu-action-modal-style">
+#hq-meal-menu-modal{position:fixed;inset:0;z-index:2147483000;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(0,25,18,.72);box-sizing:border-box}
+#hq-meal-menu-modal.is-open{display:flex}
+#hq-meal-menu-modal .hq-modal-panel{width:min(620px,100%);max-height:min(82vh,760px);overflow:auto;background:#fffdf6;border:2px solid #d8b45e;border-radius:22px;box-shadow:0 24px 70px rgba(0,0,0,.3);padding:22px 24px 24px;box-sizing:border-box}
+#hq-meal-menu-modal .hq-modal-top{display:flex;align-items:center;justify-content:space-between;gap:12px;border-bottom:2px solid #ead7a2;padding-bottom:12px;margin-bottom:14px}
+#hq-meal-menu-modal h2{margin:0;color:#075b3c;font-size:clamp(22px,4vw,30px);font-weight:900}
+#hq-meal-menu-modal .hq-modal-close{border:0;border-radius:50%;width:38px;height:38px;flex:0 0 38px;background:#087c49;color:#fff;font-size:25px;line-height:1;cursor:pointer}
+#hq-meal-menu-modal .hq-modal-day{color:#8b5b0b;font-weight:800;margin:0 0 12px}
+#hq-meal-menu-modal .hq-modal-items{margin:0;padding-left:27px;color:#18372d;font-size:17px;line-height:1.55;font-weight:700}
+#hq-meal-menu-modal .hq-modal-items li{padding:3px 0 3px 4px}
+#hq-meal-menu-modal .hq-modal-empty{color:#5e6e66;font-weight:700}
+@media(max-width:480px){#hq-meal-menu-modal{padding:10px}#hq-meal-menu-modal .hq-modal-panel{padding:17px 16px 20px;border-radius:17px;max-height:86vh}#hq-meal-menu-modal .hq-modal-items{font-size:15px;line-height:1.5}}
+</style>
+<div id="hq-meal-menu-modal" role="dialog" aria-modal="true" aria-labelledby="hq-meal-menu-title">
+  <div class="hq-modal-panel">
+    <div class="hq-modal-top"><h2 id="hq-meal-menu-title">Meal Menu</h2><button class="hq-modal-close" type="button" aria-label="Close menu">×</button></div>
+    <p class="hq-modal-day" id="hq-meal-menu-day"></p>
+    <ol class="hq-modal-items" id="hq-meal-menu-items"></ol>
+  </div>
+</div>
+<script id="hq-menu-action-modal-script">
+(function(){
+  const modal=document.getElementById('hq-meal-menu-modal');
+  if(!modal) return;
+  const title=modal.querySelector('#hq-meal-menu-title');
+  const dayLabel=modal.querySelector('#hq-meal-menu-day');
+  const list=modal.querySelector('#hq-meal-menu-items');
+  const closeBtn=modal.querySelector('.hq-modal-close');
+  function closeModal(){modal.classList.remove('is-open');modal.setAttribute('aria-hidden','true');document.body.style.overflow='';}
+  function openMeal(card){
+    const day=(document.getElementById('menu-title')?.textContent||'').trim();
+    const meal=(card.querySelector('.card-head h3')?.textContent||'Menu').trim();
+    const time=(card.querySelector('.card-head .time')?.textContent||'').trim();
+    const spans=Array.from(card.querySelectorAll('p.weekly-menu-items span'));
+    const items=spans.map(s=>s.textContent.trim()).filter(Boolean);
+    title.textContent=meal+' Menu';
+    dayLabel.textContent=day+(time?' · '+time:'');
+    list.replaceChildren();
+    items.forEach(item=>{const li=document.createElement('li');li.textContent=item;list.appendChild(li);});
+    if(!items.length){const li=document.createElement('li');li.className='hq-modal-empty';li.textContent='Menu details are not available for this meal.';list.appendChild(li);}
+    modal.classList.add('is-open');modal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';closeBtn.focus();
+  }
+  document.addEventListener('click',function(e){
+    const menuButton=e.target.closest('#today .menu-card .small-btn');
+    if(menuButton){e.preventDefault();e.stopPropagation();const card=menuButton.closest('.menu-card');if(card && getComputedStyle(card).display!=='none')openMeal(card);return;}
+    const dayButton=e.target.closest('.day-picker .day[data-day]');
+    if(dayButton){setTimeout(function(){document.getElementById('today')?.scrollIntoView({behavior:'smooth',block:'start'});},40);}
+  });
+  closeBtn.addEventListener('click',closeModal);
+  modal.addEventListener('click',function(e){if(e.target===modal)closeModal();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&modal.classList.contains('is-open'))closeModal();});
+  modal.setAttribute('aria-hidden','true');
+})();
+</script>
+
+
